@@ -1,15 +1,24 @@
-import { fetchCategories } from '../booksAPI/booksApi';
+import * as booksAPI from '../booksAPI/booksApi';
 
-const categoriesListEl = document.querySelector('.categories_list');
-
-export default async function renderScrollListCategories() {
+async function fetchCategories() {
   try {
-    const categories = await fetchCategories();
+    const categories = await booksAPI.fetchCategories();
     categories.sort((firstName, secondName) =>
       firstName.list_name.localeCompare(secondName.list_name)
     );
 
-    categories.map(category =>
+    return categories;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default async function renderListCategoriesMurkup() {
+  const categoriesListEl = document.querySelector('.categories_list');
+  categoriesListEl.innerHTML = '';
+  try {
+    const categories = await fetchCategories();
+    categories.forEach(category =>
       categoriesListEl.insertAdjacentHTML(
         'beforeend',
         `<li class="categories_list--item">${category.list_name}</li>`
