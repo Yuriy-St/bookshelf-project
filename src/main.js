@@ -1,4 +1,3 @@
-// @import url('./utils');
-// @import url('./base');
-// @import url('./components');
-// @import url('./layout');
+import { renderListCategoriesMurkup } from './js/categories';
+
+renderListCategoriesMurkup();
