@@ -1,10 +1,10 @@
-import fechCategories from './catigories_api';
+import { fetchCategories } from '../booksAPI/books_api';
 
 const categoriesListEl = document.querySelector('.categories_list');
 
 export default async function renderMurkup() {
   try {
-    const categories = await fechCategories();
+    const categories = await fetchCategories();
     categories.sort((firstName, secondName) =>
       firstName.list_name.localeCompare(secondName.list_name)
     );
