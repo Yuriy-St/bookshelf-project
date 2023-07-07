@@ -1,3 +1,3 @@
-import { renderListCategoriesMurkup } from './js/categories';
+import { renderScrollListCategories } from './js/categories';
 
-renderListCategoriesMurkup();
+renderScrollListCategories();
