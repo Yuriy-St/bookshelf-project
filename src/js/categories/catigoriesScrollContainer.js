@@ -1,4 +1,4 @@
-import { fetchCategories } from '../booksAPI/books_api';
+import { fetchCategories } from '../booksAPI/booksApi';
 
 const categoriesListEl = document.querySelector('.categories_list');
 
