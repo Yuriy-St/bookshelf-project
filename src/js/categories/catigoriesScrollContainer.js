@@ -2,7 +2,7 @@ import { fetchCategories } from '../booksAPI/books_api';
 
 const categoriesListEl = document.querySelector('.categories_list');
 
-export default async function renderMurkup() {
+export default async function renderListCategoriesMurkup() {
   try {
     const categories = await fetchCategories();
     categories.sort((firstName, secondName) =>

@@ -1,1 +1,3 @@
-import './js/categories/categories';
+import { renderListCategoriesMurkup } from './js/categories';
+
+renderListCategoriesMurkup();
