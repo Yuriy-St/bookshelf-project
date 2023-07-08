@@ -1,21 +1,19 @@
-.container,
-.container-adaptive {
+.container {
   padding: 0 20px;
   margin: 0 auto;
-}
-
-.container {
-  max-width: 1440px;
+  width: 375px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     padding: 0 32px;
+    width: 768px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     padding: 0 24px;
+    width: 1440px;
   }
 }
