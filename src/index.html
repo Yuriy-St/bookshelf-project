@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Title -->
-    <title>Bookshelf</title>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Styles -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
-    />
-    <link rel="stylesheet" href="./css/main.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <load src="partials/header.html" />
+  <!-- Title -->
+  <title>Bookshelf</title>
 
-    <!-- Main content -->
-    <main>
-      <div class="container">
-        <aside class="sidebar">
-          <!-- Categories -->
-          <section class="categories">
-            <ul class="categories_list">
-              <li class="categories_list--item current">All categories</li>
-            </ul>
-          </section>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
 
-          <!-- Charity -->
-          <section class="charity">
-            <p>Charity list</p>
-          </section>
-        </aside>
+<body>
+  <!-- Header -->
+  <load src="partials/header.html" />
 
-        <section class="bookshelf">Books list</section>
-      </div>
-    </main>
+  <!-- mobile-menu -->
+  <load srcsrc="partials/mobile-menu.html" />
+  <link rel="stylesheet" href="./css/components/mobile-menu.css" />
 
-    <script type="module" src="./main.js"></script>
-  </body>
+
+  <!-- Main content -->
+  <main>
+    <div class="container">
+      <aside class="sidebar">
+        <!-- Categories -->
+        <section class="categories">
+          <ul class="categories_list">
+            <li class="categories_list--item current">All categories</li>
+          </ul>
+        </section>
+
+        <!-- Charity -->
+        <section class="charity">
+          <p>Charity list</p>
+        </section>
+      </aside>
+
+      <section class="bookshelf">Books list</section>
+    </div>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>

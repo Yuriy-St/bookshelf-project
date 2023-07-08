@@ -1,0 +1,80 @@
+.mobile-container-user {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.mobile-menu-user-icon {
+  width: 37px;
+}
+
+.mobile-menu-user {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+}
+
+.mobile-container-home {
+  background-color: aqua;
+
+  margin-right: auto;
+  margin-left: auto;
+  width: 72px;
+  height: 34px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 36px;
+  gap: 10px;
+
+  margin-top: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-home {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+}
+
+.mobile-container-list {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+
+  gap: 4px;
+}
+
+.mobile-menu-Shop-list {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+}
+
+.mobile-container-log-out {
+  background-color: var(--primary-brand-color);
+  width: 118px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px;
+
+  margin-top: 400px;
+
+  gap: 2px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-menu-log-out {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+}
