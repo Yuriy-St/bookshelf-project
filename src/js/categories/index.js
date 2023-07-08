@@ -1,3 +1,1 @@
-import renderListCategoriesMurkup from './catigoriesScrollContainer';
-
-export { renderListCategoriesMurkup };
+import './catigoriesScrollContainer';
