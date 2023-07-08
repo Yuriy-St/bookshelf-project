@@ -1,3 +1,1 @@
-import { renderScrollListCategories } from './js/categories';
-
-renderScrollListCategories();
+import './js/categories';
