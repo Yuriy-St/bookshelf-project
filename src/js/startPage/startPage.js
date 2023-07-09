@@ -17,7 +17,10 @@ function createCategoryContainer(listName) {
   const categoryContainer = document.createElement('div');
   categoryContainer.innerHTML = `
     <h5 class="categories_list--item">${listName}</h5>
-    <ul class="top-books-list" id="${listName.replace(/ /g, '-')}-list"></ul>
+    <ul class="bookshelf_category--list" id="${listName.replace(
+      / /g,
+      '-'
+    )}-list"></ul>
     <button>SEE MORE</button>
   `;
   return categoryContainer;
