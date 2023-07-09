@@ -1,5 +1,5 @@
 .bookshelf_category--title {
-  color: #111;
+  color: var(--h1-primary-color);
   font-family: 'DM Sans', sans-serif;
   font-size: 32px;
   font-weight: 700;
@@ -14,7 +14,7 @@
 }
 
 .bookshelf_category--title .blue-last-word {
-  color: #4f2ee8;
+  color: var(--h1-secondary-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -38,5 +38,11 @@
     flex-wrap: wrap;
     row-gap: 40px;
     column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .bookshelf_category--list {
+    column-gap: 24px;
   }
 }
