@@ -50,7 +50,7 @@ export async function getListOfBooks() {
     }
   } catch (err) {
     throw err;
-    // add  notify
+    // add  notify .
   }
 }
 
