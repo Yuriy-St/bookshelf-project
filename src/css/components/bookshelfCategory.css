@@ -1,0 +1,42 @@
+.bookshelf_category--title {
+  color: #111;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1875;
+  letter-spacing: -1.28px;
+  margin-bottom: 40px;
+
+  font-size: 48px;
+
+  line-height: 52px;
+  letter-spacing: -1.92px;
+}
+
+.bookshelf_category--title .blue-last-word {
+  color: #4f2ee8;
+}
+
+@media screen and (min-width: 768px) {
+  .bookshelf_category--title {
+    font-size: 48px;
+    line-height: 1.083;
+    letter-spacing: -1.92px;
+  }
+}
+
+.bookshelf_category--list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .bookshelf_category--list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 25px;
+  }
+}
