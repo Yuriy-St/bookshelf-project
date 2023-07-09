@@ -48,7 +48,7 @@
 }
 
 .categories_list--item {
-  color: rgba(17, 17, 17, 0.6);
+  color: var(--text-transparent);
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.125;
@@ -66,7 +66,7 @@
 }
 
 .categories_list--item.current {
-  color: #4f2ee8;
+  color: var(--link-highlight);
   font-weight: 700;
   text-transform: uppercase;
 
@@ -81,6 +81,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
+  background-color: var(--slider-color);
   border-radius: 12px;
 }
