@@ -1,0 +1,36 @@
+.charity {
+  width: 352px;
+  height: 335px;
+  padding-bottom: 40px;
+  border: 1px solid tomato;
+}
+
+.charity-list {
+  width: 159px;
+  height: 188px;
+  overflow: hidden;
+}
+
+.charity-title {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+/* .charity-list {
+  overflow: hidden;
+} */
+
+.charity-item {
+  display: flex;
+}
+
+.charity-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.btn-scroll {
+  width: 32px;
+  height: 32px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
