@@ -53,8 +53,23 @@ async function onCategoryClick(event) {
 
   toggleCurrentCategoryColor(event.target);
 
-  let category = await booksAPI.fetchBookCategory(event.target.textContent);
+  const category = await fetchBookCategory(event.target.textContent);
+  const categoryBooks = collectCategoryBooks(category);
 
+  renderBookshelf(event.target.textContent);
+  renderCategoryBooks(categoryBooks);
+}
+
+async function fetchBookCategory(categoryName) {
+  try {
+    const category = await booksAPI.fetchBookCategory(categoryName);
+    return category;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function collectCategoryBooks(category) {
   const categoryBooksArray = category.map(book => {
     let bookId = book._id;
     let bookAuthorName = book.author;
@@ -64,22 +79,25 @@ async function onCategoryClick(event) {
     return { bookId, bookImage, bookAuthorName, bookTitle };
   });
 
-  clearBookshelf(event.target.textContent);
+  return categoryBooksArray;
+}
+
+function renderCategoryBooks(categoryBooks) {
   const bookshelfListRef = document.querySelector('.bookshelf_category--list');
 
-  categoryBooksArray.map(book =>
+  categoryBooks.map(book =>
     bookshelfListRef.insertAdjacentHTML('beforeend', markupBookCard(book))
   );
 }
 
-function clearBookshelf(simpleCategoryName) {
+function renderBookshelf(simpleCategoryName) {
   let finalCategoryName = simpleCategoryName.split(' ');
 
   bookShelfEl.innerHTML = `<h1 class="bookshelf_category--title">${finalCategoryName
     .slice(0, finalCategoryName.length - 1)
     .join(' ')} <span class="blue-last-word">${finalCategoryName.slice(
     -1
-  )}</span></h1><ul class="bookshelf_category--list" ></ul>`;
+  )}</span></h1><ul class="bookshelf_category--list"></ul>`;
 }
 
 function toggleCurrentCategoryColor(clickedCategory) {
