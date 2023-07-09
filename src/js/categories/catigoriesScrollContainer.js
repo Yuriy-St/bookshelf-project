@@ -1,8 +1,8 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { markupBookCard } from '../bookCard/bookCard';
 
-const categoriesContainerRef = document.querySelector('.categories');
-categoriesContainerRef.innerHTML =
+const categoriesContainerEl = document.querySelector('.categories');
+categoriesContainerEl.innerHTML =
   '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
 const categoriesListEl = document.querySelector('.categories_list');
 const bookShelfEl = document.querySelector('.bookshelf');
@@ -24,6 +24,7 @@ async function fetchCategories() {
 
 async function renderListCategoriesMurkup() {
   try {
+    // throw new error();
     const categories = await fetchCategories();
     categories.forEach(category =>
       categoriesListEl.insertAdjacentHTML(
@@ -33,6 +34,15 @@ async function renderListCategoriesMurkup() {
     );
   } catch (error) {
     console.log(error);
+    categoriesContainerEl.innerHTML = `
+    <div class="error_container">
+       <p class="error_container--message">
+          Oops! Sorry, but something is wrong. 
+          Please,
+          try again or reload the page.
+       </p>
+    </div>
+    `;
   }
 }
 
