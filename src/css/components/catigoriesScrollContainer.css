@@ -69,6 +69,11 @@
   color: #4f2ee8;
   font-weight: 700;
   text-transform: uppercase;
+
+  min-height: 23.938px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ::-webkit-scrollbar {

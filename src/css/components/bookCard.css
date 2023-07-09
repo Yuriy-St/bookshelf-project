@@ -58,6 +58,11 @@
   line-height: 1.125;
   letter-spacing: -0.64px;
   text-transform: uppercase;
+
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .book_card--author {
@@ -67,6 +72,11 @@
   font-style: italic;
   line-height: 1.16;
   letter-spacing: -0.48px;
+
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .quick-view {

@@ -40,3 +40,9 @@
     column-gap: 25px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .bookshelf_category--list {
+    column-gap: 24px;
+  }
+}
