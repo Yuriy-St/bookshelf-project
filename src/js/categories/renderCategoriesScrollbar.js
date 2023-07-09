@@ -1,5 +1,5 @@
 import * as booksAPI from '../booksAPI/booksApi';
-import { markupBookCard } from '../bookCard/bookCard';
+import { renderBookshelf } from './renderBookshelf';
 
 const categoriesContainerEl = document.querySelector('.categories');
 categoriesContainerEl.innerHTML =
@@ -22,7 +22,7 @@ async function fetchCategories() {
   }
 }
 
-async function renderListCategoriesMurkup() {
+export async function renderCategoriesScrollbar() {
   try {
     // throw new error();
     const categories = await fetchCategories();
@@ -46,18 +46,15 @@ async function renderListCategoriesMurkup() {
   }
 }
 
-renderListCategoriesMurkup();
-
 async function onCategoryClick(event) {
   if (event.target === categoriesListEl) return;
 
   toggleCurrentCategoryColor(event.target);
 
-  const category = await fetchBookCategory(event.target.textContent);
-  const categoryBooks = collectCategoryBooks(category);
+  const categoryBooks = await fetchBookCategory(event.target.textContent);
+  const bookshelfRef = document.querySelector('.bookshelf');
 
-  renderBookshelf(event.target.textContent);
-  renderCategoryBooks(categoryBooks);
+  renderBookshelf(categoryBooks, bookshelfRef);
 }
 
 async function fetchBookCategory(categoryName) {
@@ -67,37 +64,6 @@ async function fetchBookCategory(categoryName) {
   } catch (error) {
     console.log(error);
   }
-}
-
-function collectCategoryBooks(category) {
-  const categoryBooksArray = category.map(book => {
-    let bookId = book._id;
-    let bookAuthorName = book.author;
-    let bookImage = book.book_image;
-    let bookTitle = book.title;
-
-    return { bookId, bookImage, bookAuthorName, bookTitle };
-  });
-
-  return categoryBooksArray;
-}
-
-function renderCategoryBooks(categoryBooks) {
-  const bookshelfListRef = document.querySelector('.bookshelf_category--list');
-
-  categoryBooks.map(book =>
-    bookshelfListRef.insertAdjacentHTML('beforeend', markupBookCard(book))
-  );
-}
-
-function renderBookshelf(simpleCategoryName) {
-  let finalCategoryName = simpleCategoryName.split(' ');
-
-  bookShelfEl.innerHTML = `<h1 class="bookshelf_category--title">${finalCategoryName
-    .slice(0, finalCategoryName.length - 1)
-    .join(' ')} <span class="blue-last-word">${finalCategoryName.slice(
-    -1
-  )}</span></h1><ul class="bookshelf_category--list"></ul>`;
 }
 
 function toggleCurrentCategoryColor(clickedCategory) {

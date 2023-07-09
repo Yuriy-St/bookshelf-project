@@ -1,1 +1,2 @@
-import './js/categories';
+import { renderCategoriesScrollbar } from './js/categories';
+renderCategoriesScrollbar();
