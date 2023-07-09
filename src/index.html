@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Bookshelf</title>
 
-  <!-- Title -->
-  <title>Bookshelf</title>
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-</head>
+  <body>
+    <!-- Header -->
+    <load src="partials/header.html" />
 
-<body>
-  <!-- Header -->
-  <load src="partials/header.html" />
+    <!-- Main content -->
+    <main>
+      <div class="home container">
+        <aside class="sidebar">
+          <!-- Categories -->
+          <section class="categories">
+            <p>Categories list</p>
+          </section>
 
-  <!-- Main content -->
-  <main>
-    <div class="container">
-      <aside class="sidebar">
-        <!-- Categories -->
-        <section class="categories">
-          <ul class="categories_list">
-            <li class="categories_list--item current">All categories</li>
-          </ul>
-        </section>
+          <!-- Charity -->
+          <section class="charity"></section>
+        </aside>
 
-        <!-- Charity -->
-        <section class="charity">
-        </section>
-      </aside>
+        <section class="bookshelf">Books list</section>
+      </div>
+    </main>
 
-      <section class="bookshelf">Books list</section>
-    </div>
-  </main>
-
-  <script type="module" src="./main.js"></script>
-</body>
-
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
