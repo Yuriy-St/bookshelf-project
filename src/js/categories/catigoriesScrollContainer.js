@@ -22,7 +22,7 @@ async function fetchCategories() {
   }
 }
 
-async function renderListCategoriesMurkup() {
+export async function renderListCategoriesMurkup() {
   try {
     const categories = await fetchCategories();
     categories.forEach(category =>
@@ -36,7 +36,7 @@ async function renderListCategoriesMurkup() {
   }
 }
 
-renderListCategoriesMurkup();
+// renderListCategoriesMurkup();
 
 async function onCategoryClick(event) {
   if (event.target === categoriesListEl) return;
