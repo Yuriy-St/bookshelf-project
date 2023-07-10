@@ -5,6 +5,7 @@ let categoriesContainerRef = null;
 
 export async function renderCategoriesScrollbar(parentRef) {
   try {
+    // для мержу
     // throw new error();
     const categories = await fetchCategories();
     parentRef.innerHTML =
