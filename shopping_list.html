@@ -14,10 +14,12 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/main-378e0078.js"></script>
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-cf507ec0.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/shopping_list-dc63c21b.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-88d4c744.js">
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/_commonjsHelpers-8b236e41.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-a3638d6a.css">
   </head>
-  <body>
+  <body class="theme-light">
     <!-- Header -->
     <header class="header container">
   <div class="header-content">
@@ -56,6 +58,14 @@
     <div class="container">
       <aside class="sidebar"></aside>
       <section class="bookshelf"></section>
+      <h2 class="shopinglist-title">
+        Shopping<span class="shopinglist-wrap">List</span>
+      </h2>
+      <div class="shopinglist-container">
+        <ul id="booksContainer" class="shopinglist-list"></ul>
+        <div id="pagination" class="tui-pagination"></div>
+      </div>
+      <!-- div id="pagination"></div> -->
     </div>
 
     
