@@ -1,8 +1,8 @@
 import * as booksAPI from '../booksAPI/booksApi';
-import { markupBookCard } from '../bookCard/bookCard';
+import { renderBookshelf } from './renderBookshelf';
 
-const categoriesContainerRef = document.querySelector('.categories');
-categoriesContainerRef.innerHTML =
+const categoriesContainerEl = document.querySelector('.categories');
+categoriesContainerEl.innerHTML =
   '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
 const categoriesListEl = document.querySelector('.categories_list');
 const bookShelfEl = document.querySelector('.bookshelf');
@@ -22,8 +22,9 @@ async function fetchCategories() {
   }
 }
 
-export async function renderListCategoriesMurkup() {
+export async function renderCategoriesScrollbar() {
   try {
+    // throw new error();
     const categories = await fetchCategories();
     categories.forEach(category =>
       categoriesListEl.insertAdjacentHTML(
@@ -33,43 +34,36 @@ export async function renderListCategoriesMurkup() {
     );
   } catch (error) {
     console.log(error);
+    categoriesContainerEl.innerHTML = `
+    <div class="error_container">
+       <p class="error_container--message">
+          Oops! Sorry, but something is wrong.
+          Please,
+          try again or reload the page.
+       </p>
+    </div>
+    `;
   }
 }
-
-// renderListCategoriesMurkup();
 
 async function onCategoryClick(event) {
   if (event.target === categoriesListEl) return;
 
   toggleCurrentCategoryColor(event.target);
 
-  let category = await booksAPI.fetchBookCategory(event.target.textContent);
+  const categoryBooks = await fetchBookCategory(event.target.textContent);
+  const bookshelfRef = document.querySelector('.bookshelf');
 
-  const categoryBooksArray = category.map(book => {
-    let bookId = book._id;
-    let bookAuthorName = book.author;
-    let bookImage = book.book_image;
-    let bookTitle = book.title;
-
-    return { bookId, bookImage, bookAuthorName, bookTitle };
-  });
-
-  clearBookshelf(event.target.textContent);
-  const bookshelfListRef = document.querySelector('.bookshelf_category--list');
-
-  categoryBooksArray.map(book =>
-    bookshelfListRef.insertAdjacentHTML('beforeend', markupBookCard(book))
-  );
+  renderBookshelf(categoryBooks, bookshelfRef);
 }
 
-function clearBookshelf(simpleCategoryName) {
-  let finalCategoryName = simpleCategoryName.split(' ');
-
-  bookShelfEl.innerHTML = `<h1 class="bookshelf_category--title">${finalCategoryName
-    .slice(0, finalCategoryName.length - 1)
-    .join(' ')} <span class="blue-last-word">${finalCategoryName.slice(
-    -1
-  )}</span></h1><ul class="bookshelf_category--list" ></ul>`;
+async function fetchBookCategory(categoryName) {
+  try {
+    const category = await booksAPI.fetchBookCategory(categoryName);
+    return category;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function toggleCurrentCategoryColor(clickedCategory) {

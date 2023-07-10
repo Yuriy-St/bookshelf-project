@@ -84,3 +84,37 @@
   background-color: var(--slider-color);
   border-radius: 12px;
 }
+
+.error_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 335px;
+  height: 80px;
+
+  color: var(--brand-black);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  background-color: rgb(228, 81, 81, 0.3);
+  border: 3px solid rgb(228, 81, 81);
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .error_container {
+    width: 337px;
+    height: 90px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .error_container {
+    width: 356px;
+  }
+}
+.error_container--message {
+  margin: 0 auto;
+  max-width: 280px;
+  text-align: center;
+}

@@ -1,1 +1,1 @@
-export { renderListCategoriesMurkup } from './catigoriesScrollContainer';
+export { renderCategoriesScrollbar } from './renderCategoriesScrollbar';

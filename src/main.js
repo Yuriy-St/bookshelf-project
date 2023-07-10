@@ -1,5 +1,5 @@
-import { renderListCategoriesMurkup } from './js/categories';
+import { renderCategoriesScrollbar } from './js/categories';
 import markupCharityList from './js/charity/charityScrollContainer';
 
-renderListCategoriesMurkup();
+renderCategoriesScrollbar();
 markupCharityList();
