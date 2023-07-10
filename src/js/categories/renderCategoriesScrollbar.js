@@ -18,7 +18,7 @@ export async function renderCategoriesScrollbar(parentRef) {
       murkupCategoriesScrollbar(categories)
     );
   } catch {
-    onErrorMessage();
+    onErrorMessage(categoriesContainerRef);
   }
 }
 
@@ -43,9 +43,9 @@ function murkupCategoriesScrollbar(categories) {
     .join('');
 }
 
-function onErrorMessage() {
-  categoriesContainerRef.classList.add('error');
-  categoriesContainerRef.innerHTML = `
+function onErrorMessage(parentRef) {
+  parentRef.classList.add('error');
+  parentRef.innerHTML = `
     <div class="error_container">
       <p class="error_container--message">
           Oops! Sorry, but we weren't able to get a category list.
