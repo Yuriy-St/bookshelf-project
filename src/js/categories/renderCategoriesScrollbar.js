@@ -5,12 +5,12 @@ let categoriesContainerRef = null;
 
 export async function renderCategoriesScrollbar(parentRef) {
   try {
-    // для мержу
-    // throw new error();
-    const categories = await fetchCategories();
     parentRef.innerHTML =
       '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
     categoriesContainerRef = document.querySelector('.categories_list');
+    const categories = await fetchCategories();
+    // throw new error();
+
     categoriesContainerRef.addEventListener('click', onClickCategory);
 
     categoriesContainerRef.insertAdjacentHTML(
@@ -44,12 +44,14 @@ function murkupCategoriesScrollbar(categories) {
 }
 
 function onErrorMessage() {
+  categoriesContainerRef.classList.add('error');
   categoriesContainerRef.innerHTML = `
     <div class="error_container">
       <p class="error_container--message">
-          Oops! Sorry, but something is wrong.
+          Oops! Sorry, but we weren't able to get a category list.
+          <br>
           Please,
-          try again or reload the page.
+          try reload the page.
       </p>
     </div>
     `;
