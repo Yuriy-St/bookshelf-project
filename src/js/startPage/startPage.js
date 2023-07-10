@@ -16,7 +16,7 @@ async function fetchTopBooksData() {
 function createCategoryContainer(listName) {
   const categoryContainer = document.createElement('div');
   categoryContainer.innerHTML = `
-    <h5 class="categories_list--item">${listName}</h5>
+    <h2 class="categories_list--item">${listName}</h2>
     <ul class="bookshelf_category--list" id="${listName.replace(
       / /g,
       '-'
