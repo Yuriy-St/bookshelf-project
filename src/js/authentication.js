@@ -1,4 +1,9 @@
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 class Authentication {
   constructor({ name, email, password }) {
@@ -11,11 +16,14 @@ class Authentication {
   //register
   async registerUser() {
     try {
-      const userCredential = await createUserWithEmailAndPassword(this.auth, this.email, this.password);
+      const userCredential = await createUserWithEmailAndPassword(
+        this.auth,
+        this.email,
+        this.password
+      );
       await this.#updateUser(userCredential.user);
       return userCredential;
     } catch (err) {
-      // add Notify lib
       throw err;
     }
   }
@@ -32,7 +40,11 @@ class Authentication {
 
   async signInUser() {
     try {
-      const userCredential = await signInWithEmailAndPassword(this.auth, this.email, this.password);
+      const userCredential = await signInWithEmailAndPassword(
+        this.auth,
+        this.email,
+        this.password
+      );
       return userCredential;
     } catch (err) {
       console.log(err);
