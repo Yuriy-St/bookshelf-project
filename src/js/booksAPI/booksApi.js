@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_API = 'https://books-backend.p.goit.global/book/';
+const BASE_API = 'https://books-backend.p.goit.global/books/';
 
 export async function fetchCategories() {
   try {
