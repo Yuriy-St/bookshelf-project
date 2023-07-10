@@ -33,6 +33,10 @@
   padding: 0;
 }
 
+.categories_list.error {
+  height: fit-content;
+}
+
 @media screen and (min-width: 768px) {
   .categories_list {
     width: 337px;
@@ -90,7 +94,8 @@
   justify-content: flex-end;
   align-items: center;
 
-  width: 335px;
+  width: 99%;
+
   height: 80px;
 
   color: var(--brand-black);
@@ -103,18 +108,18 @@
 
 @media screen and (min-width: 768px) {
   .error_container {
-    width: 337px;
+    width: 99%;
     height: 90px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .error_container {
-    width: 356px;
+    width: 99%;
   }
 }
 .error_container--message {
   margin: 0 auto;
   max-width: 280px;
-  text-align: center;
+  text-align: start;
 }
