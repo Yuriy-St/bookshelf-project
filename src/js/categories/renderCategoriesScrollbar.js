@@ -37,7 +37,7 @@ export async function renderCategoriesScrollbar() {
     categoriesContainerEl.innerHTML = `
     <div class="error_container">
        <p class="error_container--message">
-          Oops! Sorry, but something is wrong. 
+          Oops! Sorry, but something is wrong.
           Please,
           try again or reload the page.
        </p>
