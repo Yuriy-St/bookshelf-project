@@ -1,32 +1,67 @@
 :root {
-  /* брендовий текст, кнопка, hover */
-  --primary-brand-color: #fd9222;
-  /* ховер на кнопку, елементи модалок */
-  --secondary-brand-color: #fcf1e0;
-  /* чорний текст, icon */
-  --primary-text-color: #111111;
-  /* білий текст */
-  --inverted-text-color: #ffffff;
-  /* сірий текст */
-  --light-text-color: rgba(17, 17, 17, 0.7);
-  /* сіра окантовка кнопок*/
-  --light-stroke-color: rgba(17, 17, 17, 0.1);
-  /* текст в інпут-плейсхолдерах */
-  --placeholder-text-color: rgba(64, 64, 64, 0.4);
-  /* сірий фон */
-  --light-background-color: #fafafa;
-  /* темно фіолетовий фон */
-  --dark-background-color: #1e1823;
-  /* колір бекдропу для модалок */
-  --backdrop-color: rgba(30, 24, 35, 0.3);
-  /* ще якийсь білий колір з макету */
-  --white-color: #fafafa;
+  --black: #000000;
+  --brand-black: #111111;
+  --brand-dark: #4f2ee8;
+  --brand-dark-color-40-proc: rgba(79, 46, 232, 0.4);
+  --brand-dark-radial-gradient: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    var(--brand-dark) 18.03%,
+    #fff 100%
+  );
+  --brand-graphite: #202024;
+  --brand-light: #eac645;
+  --brand-mist-color: #f6f6f6;
+  --brand-stone-color: #b4afaf;
+  --h1-secondary-color: var(--brand-dark);
+  --overlay-bg: rgba(17, 17, 17, 0.4);
+  --pagination-btn-left-fill-color: var(--brand-black);
+  --pagination-btn-right-text-color: var(--black);
+  --white: #ffffff;
+
   /* стандартний час і функція для транзишинів */
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .theme-light {
+  --active-page-btn-color: var(--brand-black);
+  --body-bg: var(--brand-mist-color);
+  --header-bg: var(--white);
+  --brand-dark-liniear-gradient: linear-gradient(
+    180deg,
+    var(--brand-dark) 0%,
+    #dcdcdc 100%
+  );
+  --h1-primary-color: var(--brand-black);
+  --link-highlight: var(--brand-dark);
+  --logo-light-color: var(--brand-mist-color);
+  --logo-text-color: var(--black);
+  --pagination-btn-left-text-color: var(--brand-stone-color);
+  --secondary-bg-color: var(--white);
+  --slider-color: #e0e0e0;
+  --text-inversed-color: var(--white);
+  --text-primary-color: var(--brand-black);
+  --text-secondary-color: var(--brand-stone-color);
+  --text-transparent: rgba(17, 17, 17, 0.6);
 }
 
 .theme-dark {
+  --active-page-btn-color: var(--white);
+  --body-bg: #202024;
+  --header-bg: #var(--brand-black);
+  --brand-dark-liniear-gradient: linear-gradient(
+    180deg,
+    #4f2ee8 0%,
+    #686868 100%
+  );
+  --h1-primary-color: var(--white);
+  --link-highlight: #eac645;
+  --logo-light-color: var(--brand-mist-color);
+  --logo-text-color: #f3f3f3;
+  --pagination-btn-left-text-color: var(--white);
+  --secondary-bg-color: #var(--brand-black);
+  --slider-color: #202024;
+  --text-inversed-color: var(--black);
+  --text-primary-color: var(--white);
+  --text-secondary-color: var(--brand-stone-color);
+  --text-transparent: #a6a6a7;
 }

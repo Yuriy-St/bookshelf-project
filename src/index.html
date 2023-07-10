@@ -15,31 +15,31 @@
     />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
+
   <body>
     <!-- Header -->
     <load src="partials/header.html" />
 
     <!-- Main content -->
     <main>
-      <div class="container">
+      <div class="home container">
         <aside class="sidebar">
           <!-- Categories -->
           <section class="categories">
-            <ul class="categories_list">
-              <li class="categories_list--item current">All categories</li>
-            </ul>
+            <p>Categories list</p>
           </section>
-
           <!-- Charity -->
-          <section class="charity">
-            <p>Charity list</p>
-          </section>
+          <section class="charity"></section>
         </aside>
 
         <section class="bookshelf">Books list</section>
       </div>
     </main>
 
+    <load src="partials/singUp.html" />
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/firebase/firebase.js"></script>
+    <script type="module" src="./js/modalWindow/modalWindow.js"></script>
+    <script type="module" src="./js/modalWindow/signup.js"></script>
   </body>
 </html>
