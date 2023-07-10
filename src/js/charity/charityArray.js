@@ -46,4 +46,11 @@ const charityArray = [
   },
 ];
 
-export default charityArray;
+export default charityArray.map(({ title, url, img }) => {
+  const imgURL = new URL(img, import.meta.url).href;
+  return {
+    title,
+    url,
+    img: imgURL,
+  };
+});
