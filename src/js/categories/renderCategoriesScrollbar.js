@@ -1,13 +1,7 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
 
-const categoriesContainerEl = document.querySelector('.categories');
-categoriesContainerEl.innerHTML =
-  '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
-const categoriesListEl = document.querySelector('.categories_list');
-const bookShelfEl = document.querySelector('.bookshelf');
-
-categoriesListEl.addEventListener('click', onCategoryClick);
+let categoriesListEl = null;
 
 async function fetchCategories() {
   try {
@@ -22,19 +16,34 @@ async function fetchCategories() {
   }
 }
 
-export async function renderCategoriesScrollbar() {
+export async function renderCategoriesScrollbar(parentRef) {
   try {
     // throw new error();
     const categories = await fetchCategories();
-    categories.forEach(category =>
-      categoriesListEl.insertAdjacentHTML(
-        'beforeend',
-        `<li class="categories_list--item">${category.list_name}</li>`
-      )
+    parentRef.innerHTML =
+      '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
+    categoriesListEl = document.querySelector('.categories_list');
+    categoriesListEl.addEventListener('click', onCategoryClick);
+
+    categoriesListEl.insertAdjacentHTML(
+      'beforeend',
+      murkupCategoriesScrollbar(categories)
     );
-  } catch (error) {
-    console.log(error);
-    categoriesContainerEl.innerHTML = `
+  } catch {
+    onErrorMessage();
+  }
+}
+
+function murkupCategoriesScrollbar(categories) {
+  return categories
+    .map(
+      category => `<li class="categories_list--item">${category.list_name}</li>`
+    )
+    .join('');
+}
+
+function onErrorMessage() {
+  categoriesContainerRef.innerHTML = `
     <div class="error_container">
        <p class="error_container--message">
           Oops! Sorry, but something is wrong.
@@ -43,7 +52,6 @@ export async function renderCategoriesScrollbar() {
        </p>
     </div>
     `;
-  }
 }
 
 async function onCategoryClick(event) {
