@@ -1,5 +1,7 @@
-import { renderListCategoriesMurkup } from './js/categories';
+import { renderCategoriesScrollbar } from './js/categories';
 import renderCharityList from './js/charity/charityScrollContainer';
 
-renderListCategoriesMurkup();
+const categoriesContainerRef = document.querySelector('.categories');
+
+renderCategoriesScrollbar(categoriesContainerRef);
 renderCharityList();
