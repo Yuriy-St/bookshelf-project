@@ -1,7 +1,7 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
 
-let categoriesListEl = null;
+let categoriesContainerRef = null;
 
 export async function renderCategoriesScrollbar(parentRef) {
   try {
@@ -9,10 +9,10 @@ export async function renderCategoriesScrollbar(parentRef) {
     const categories = await fetchCategories();
     parentRef.innerHTML =
       '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
-    categoriesListEl = document.querySelector('.categories_list');
-    categoriesListEl.addEventListener('click', onClickCategory);
+    categoriesContainerRef = document.querySelector('.categories_list');
+    categoriesContainerRef.addEventListener('click', onClickCategory);
 
-    categoriesListEl.insertAdjacentHTML(
+    categoriesContainerRef.insertAdjacentHTML(
       'beforeend',
       murkupCategoriesScrollbar(categories)
     );
@@ -45,17 +45,17 @@ function murkupCategoriesScrollbar(categories) {
 function onErrorMessage() {
   categoriesContainerRef.innerHTML = `
     <div class="error_container">
-       <p class="error_container--message">
+      <p class="error_container--message">
           Oops! Sorry, but something is wrong.
           Please,
           try again or reload the page.
-       </p>
+      </p>
     </div>
     `;
 }
 
 async function onClickCategory(event) {
-  if (event.target === categoriesListEl) return;
+  if (event.target === categoriesContainerRef) return;
 
   toggleCurrentCategoryColor(event.target);
 
