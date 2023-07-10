@@ -1,3 +1,12 @@
+.mobile-menu-container {
+  position: relative;
+  background-image: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+}
+
 .mobile-container-user {
   display: flex;
   gap: 9px;
@@ -28,7 +37,7 @@
   border-radius: 36px;
   gap: 10px;
 
-  margin-top: 100px;
+  margin-top: 130px;
 
   display: flex;
   justify-content: center;
@@ -43,7 +52,7 @@
 }
 
 .mobile-container-list {
-  margin-top: 18px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
 
@@ -59,17 +68,22 @@
 
 .mobile-container-log-out {
   background-color: var(--primary-brand-color);
-  width: 118px;
-  height: 48px;
+  max-width: 118px;
+  max-height: 48px;
   border-radius: 18px;
   border: 1.5px;
 
-  margin-top: 400px;
+  margin-top: 428px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
   gap: 2px;
 
   display: flex;
+
   justify-content: center;
+  align-items: center;
 }
 
 .mobile-menu-log-out {
@@ -77,4 +91,16 @@
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.04em;
+}
+
+.bg-img {
+  background-image: url(/src/img/bg-mobile-menu.png);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
