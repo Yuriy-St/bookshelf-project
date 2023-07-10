@@ -34,10 +34,16 @@ const options = {
 
 const observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
-    console.log('h');
     if (entry.isIntersecting) {
-        console.log('m')
         onScrollTop()
+    }
+  });
+}, options);
+
+const observerTop = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+        onTop()
     }
   });
 }, options);
@@ -47,6 +53,7 @@ btnScroll.addEventListener('click', onClick)
 function onClick() {
 
     observer.observe(charityList.lastElementChild);
+    observerTop.observe(charityList.firstElementChild);
 
     if (!charityList.lastElementChild.isIntersecting) {
         charityList.scrollBy({
@@ -56,15 +63,18 @@ function onClick() {
     }
 
     if (imgArrow.classList.contains("arrow-up")) {
-        charityList.scrollTo({
-            top: 0,
+        charityList.scrollBy({
+            top: -100,
             behavior: "smooth",
         })
-        imgArrow.classList.remove("arrow-up")
     }
 }
 
 
 function onScrollTop() {
     imgArrow.classList.add("arrow-up")
+}
+
+function onTop() {
+    imgArrow.classList.remove("arrow-up")
 }
