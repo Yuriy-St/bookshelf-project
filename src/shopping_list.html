@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>Bookshelf</title>
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body class="theme-light">
+    <!-- Header -->
+    <load src="partials/header.html" />
+
+    <!-- Main content -->
+    <div class="container">
+      <aside class="sidebar"></aside>
+      <section class="bookshelf"></section>
+      <h2 class="shopinglist-title">
+        Shopping<span class="shopinglist-wrap">List</span>
+      </h2>
+      <div class="shopinglist-container">
+        <ul id="booksContainer" class="shopinglist-list"></ul>
+        <div id="pagination" class="tui-pagination"></div>
+      </div>
+      <!-- div id="pagination"></div> -->
+    </div>
+
+    <script type="module" src="./js/shoppingList/shoppingList.js"></script>
+  </body>
+</html>
