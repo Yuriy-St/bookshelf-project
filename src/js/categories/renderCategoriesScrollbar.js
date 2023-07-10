@@ -3,6 +3,24 @@ import { renderBookshelf } from './renderBookshelf';
 
 let categoriesListEl = null;
 
+export async function renderCategoriesScrollbar(parentRef) {
+  try {
+    // throw new error();
+    const categories = await fetchCategories();
+    parentRef.innerHTML =
+      '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
+    categoriesListEl = document.querySelector('.categories_list');
+    categoriesListEl.addEventListener('click', onClickCategory);
+
+    categoriesListEl.insertAdjacentHTML(
+      'beforeend',
+      murkupCategoriesScrollbar(categories)
+    );
+  } catch {
+    onErrorMessage();
+  }
+}
+
 async function fetchCategories() {
   try {
     const categories = await booksAPI.fetchCategories();
@@ -13,24 +31,6 @@ async function fetchCategories() {
     return categories;
   } catch (error) {
     console.log(error);
-  }
-}
-
-export async function renderCategoriesScrollbar(parentRef) {
-  try {
-    // throw new error();
-    const categories = await fetchCategories();
-    parentRef.innerHTML =
-      '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
-    categoriesListEl = document.querySelector('.categories_list');
-    categoriesListEl.addEventListener('click', onCategoryClick);
-
-    categoriesListEl.insertAdjacentHTML(
-      'beforeend',
-      murkupCategoriesScrollbar(categories)
-    );
-  } catch {
-    onErrorMessage();
   }
 }
 
@@ -54,7 +54,7 @@ function onErrorMessage() {
     `;
 }
 
-async function onCategoryClick(event) {
+async function onClickCategory(event) {
   if (event.target === categoriesListEl) return;
 
   toggleCurrentCategoryColor(event.target);
