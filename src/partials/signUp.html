@@ -1,7 +1,7 @@
-<div class="backdrop is-hidden" data-modal>
+<div class="backdrop" data-modal-signUp>
   <!-- sign up modal -->
   <div class="register-modal modal">
-    <button class="close-button" type="button" data-close-modal>
+    <button class="close-button" type="button" data-close-modal-signUp>
       <!-- add svg -->
       x
     </button>
@@ -47,11 +47,13 @@
       <button class="form-button signup-button" type="submit">Sign up</button>
 
       <div class="toggle-buttons">
-        <button class="toggle-button active" type="button">Sign up</button>
-        <button class="toggle-button" type="button">Sign in</button>
+        <button class="toggle-button active" id="sign-up-button" type="button">
+          Sign up
+        </button>
+        <button class="toggle-button" id="sign-in-button" type="button">
+          Sign in
+        </button>
       </div>
     </form>
   </div>
-
-  <!-- sign in modal -->
 </div>

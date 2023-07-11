@@ -5,7 +5,7 @@
         <img class="header-logo" src="./svg/logo.svg" />
         <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" />
       </a>
-      <ul class="menu-list list">
+      <ul id="menu-list" class="menu-list list hidden">
         <li class="nav-item button">
           <a class="nav-link link" href="index.html">Home</a>
         </li>
@@ -18,7 +18,12 @@
       </ul>
     </div>
     <div class="user-block">
-      <btn class="login">Sign up</btn>
+      <div id="login-wrapper" class="login-wrapper hidden">
+        <img class="login-img" src="../img/logo_1.png" />
+        <p class="login-name"></p>
+        <p id="logout" class="logout">logout</p>
+      </div>
+      <btn id="sign-up-header" class="login">Sign up</btn>
     </div>
     <div class="burger-menu">
       <img src="./svg/align-left.svg" />
