@@ -45,11 +45,9 @@
 }
 
 .charity-list {
-  width: 164px;
   height: 198px;
   overflow-x: hidden;
   overflow-y: scroll;
-  padding-right: 5px;
 }
 
 .charity-list::-webkit-scrollbar {
@@ -63,6 +61,7 @@
 }
 
 .charity-item {
+  width: 159px;
   display: flex;
   align-items: center;
   gap: 16px;
