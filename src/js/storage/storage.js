@@ -8,14 +8,23 @@ if (localStorage.getItem('list')) {
 
 // add list of books to localStorage
 export function addListToLocalStorage(item) {
-  const { _id, list_name, author, description, book_image, buy_links } = item;
+  const { _id, list_name, author, description, title, book_image, buy_links } =
+    item;
 
   // check dublicate item in localStorage
   if (list.some(el => el._id === _id)) {
     return;
   }
 
-  list.push({ _id, list_name, author, description, book_image, buy_links });
+  list.push({
+    _id,
+    list_name,
+    author,
+    description,
+    title,
+    book_image,
+    buy_links,
+  });
   localStorage.setItem('list', JSON.stringify(list));
 }
 

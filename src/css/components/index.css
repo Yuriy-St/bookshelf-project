@@ -10,9 +10,12 @@
 @import url('./catigoriesScrollContainer.css');
 @import url('./header.css');
 @import url('./theme-switcher.css');
-@import url('./singUp.css');
 @import url('./bookCard.css');
 @import url('./bookshelfCategory.css');
+@import url('./charity.css');
+
+@import url('./backdrop/backdrop.css');
+@import url('./modals/modals.css');
 @import url('./shoppingList.css');
 @import url('./paginate.css');
 @import url('./bestsellersBooks.css');
