@@ -36,7 +36,7 @@ async function markupCategoriesBestBooks() {
         <div class="bestbooks_category--container">
           <h2 class="bestbooks_category--name">${categoryName}</h2>
           ${bestbooksCategoryList}
-          <button type="button" data-categoryname="${categoryName}">
+          <button type="button" class="button-brand-ghost button" data-categoryname="${categoryName}">
             SEE MORE
           </button>
         </div>
