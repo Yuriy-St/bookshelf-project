@@ -1,5 +1,6 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
+import renderBestSellerBooks from '../startPage/renderBestSellerBooks ';
 
 let categoriesContainerRef = null;
 
@@ -8,7 +9,7 @@ export async function renderCategoriesScrollbar(parentRef) {
     parentRef.innerHTML =
       '<ul class="categories_list list"><li class="categories_list--item current">All categories</li></ul>';
     categoriesContainerRef = document.querySelector('.categories_list');
-    const categories = await fetchCategories();
+    const categories = await fetchCategoryList();
     // throw new error();
 
     categoriesContainerRef.addEventListener('click', onClickCategory);
@@ -22,9 +23,9 @@ export async function renderCategoriesScrollbar(parentRef) {
   }
 }
 
-async function fetchCategories() {
+async function fetchCategoryList() {
   try {
-    const categories = await booksAPI.fetchCategories();
+    const categories = await booksAPI.fetchCategoryList();
     categories.sort((firstName, secondName) =>
       firstName.list_name.localeCompare(secondName.list_name)
     );
@@ -57,20 +58,36 @@ function onErrorMessage(parentRef) {
     `;
 }
 
-async function onClickCategory(event) {
+export async function onClickCategory(event) {
   if (event.target === categoriesContainerRef) return;
-
-  toggleCurrentCategoryColor(event.target);
-
-  const categoryBooks = await fetchBookCategory(event.target.textContent);
   const bookshelfRef = document.querySelector('.bookshelf');
+
+  if (event.target.textContent === 'All categories') {
+    renderBestSellerBooks(bookshelfRef);
+    toggleCurrentCategoryColor(event.target);
+    return;
+  }
+
+  let categoryClickedName = event.target.textContent;
+  let chosenCategory = event.target;
+
+  if (event.srcElement.nodeName === 'BUTTON') {
+    categoryClickedName = event.target.dataset.categoryname;
+    chosenCategory = [...categoriesContainerRef.children].find(
+      listItem => listItem.textContent === categoryClickedName
+    );
+  }
+
+  toggleCurrentCategoryColor(chosenCategory);
+
+  const categoryBooks = await fetchBooksByCategory(categoryClickedName);
 
   renderBookshelf(categoryBooks, bookshelfRef);
 }
 
-async function fetchBookCategory(categoryName) {
+async function fetchBooksByCategory(categoryName) {
   try {
-    const category = await booksAPI.fetchBookCategory(categoryName);
+    const category = await booksAPI.fetchBooksByCategory(categoryName);
     return category;
   } catch (error) {
     console.log(error);

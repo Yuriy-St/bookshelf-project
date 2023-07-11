@@ -5,11 +5,14 @@ import {
   markupBookList,
 } from '../categories/renderBookshelf';
 import { fetchTopBooks } from '../booksAPI/booksApi';
+import { onClickCategory } from '../categories/renderCategoriesScrollbar';
 
 export default async function renderBestSellerBooks(parentRef) {
   parentRef.innerHTML = markupBookshelfTitle('Best Seller Books');
 
   parentRef.insertAdjacentHTML('beforeend', await markupCategoriesBestBooks());
+
+  addButtonListeners();
 }
 
 async function fetchTopBooksData() {
@@ -43,4 +46,11 @@ async function markupCategoriesBestBooks() {
       `;
     })
     .join('');
+}
+
+function addButtonListeners() {
+  const buttonsArray = document.querySelectorAll('.button-brand-ghost');
+  buttonsArray.forEach(button =>
+    button.addEventListener('click', onClickCategory)
+  );
 }
