@@ -31,7 +31,11 @@ class Authentication {
   async #updateUser(currentUser) {
     if (currentUser) {
       try {
-        await updateProfile(currentUser, { displayName: this.name });
+        await updateProfile(currentUser, {
+          displayName: this.name,
+          photoURL:
+            'https://icons.veryicon.com/png/o/miscellaneous/rexhangiconfont/1-personal-center-20x20.png',
+        });
       } catch (err) {
         console.log(err);
       }
@@ -47,7 +51,16 @@ class Authentication {
       );
       return userCredential;
     } catch (err) {
-      console.log(err);
+      throw err;
+    }
+  }
+
+  async logout() {
+    try {
+      await this.auth.signOut();
+      return true;
+    } catch (err) {
+      throw err;
     }
   }
 }

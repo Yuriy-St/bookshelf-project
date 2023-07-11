@@ -95,6 +95,11 @@
 .nav-link:focus {
 }
 
+.user-block {
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 768px) {
   .user-block,
   .login {
@@ -108,6 +113,28 @@
 
 @media screen and (min-width: 768px) {
   .burger-menu {
+    display: none;
+  }
+}
+
+.login-wrapper {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 10px;
+}
+
+.login-img {
+  width: 25px;
+  height: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hidden {
     display: none;
   }
 }
