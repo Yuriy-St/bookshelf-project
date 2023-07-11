@@ -1,6 +1,7 @@
 .charity {
   position: relative;
   padding-top: 24px;
+  padding-right: 40px;
   padding-left: 40px;
 
   width: 335px;
@@ -45,8 +46,16 @@
 }
 
 .charity-list {
-  height: 188px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  height: 198px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.charity-list::-webkit-scrollbar {
+  width: 0px;
 }
 
 @media screen and (min-width: 768px) {
@@ -71,8 +80,9 @@
   letter-spacing: -0.56px;
 }
 
-.charity-item:not(:last-child) {
-  margin-bottom: 20px;
+.charity-item:hover .counter {
+  font-weight: bold;
+  transition: font-weight var(--transition-dur-and-func);
 }
 
 .btn-scroll {
@@ -102,6 +112,13 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .btn-scroll {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+}
+
 .btn-scroll:hover,
 .btn-scroll:focus {
   background-color: var(--brand-dark);
@@ -113,7 +130,7 @@
 }
 
 .foundation-logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: transform var(--transition-dur-and-func);
 }
 
