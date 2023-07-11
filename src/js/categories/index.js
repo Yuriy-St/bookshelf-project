@@ -1,1 +1,1 @@
-export { renderCategoriesScrollbar } from './renderCategoriesScrollbar';
+import './catigoriesScrollContainer';

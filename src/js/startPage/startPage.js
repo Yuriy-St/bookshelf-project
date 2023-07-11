@@ -1,21 +1,7 @@
-import {
-  renderBookshelf,
-  collectCategoryBooks,
-  murkupBookshelfTitle,
-  murkupBookList,
-} from '../categories/renderBookshelf';
 import { fetchTopBooks } from '../booksAPI/booksApi';
+import { markupBookCard } from '../bookCard/bookCard';
 
 const topBooksRef = document.querySelector('.bookshelf');
-
-async function renderBestSellerBooks() {
-  topBooksRef.innerHTML = murkupBookshelfTitle('Best Seller Books');
-
-  topBooksRef.insertAdjacentHTML(
-    'beforeend',
-    await markupCategoriesBestBooks()
-  );
-}
 
 async function fetchTopBooksData() {
   try {
@@ -27,27 +13,58 @@ async function fetchTopBooksData() {
   }
 }
 
-async function markupCategoriesBestBooks() {
-  const categories = await fetchTopBooksData();
-
-  return categories
-    .map(category => {
-      const book = category.books[0];
-      const categoryName = book.list_name;
-      const booksArray = collectCategoryBooks(category.books);
-      const bestbooksCategoryList = murkupBookList(booksArray);
-
-      return `
-        <div class="bestbooks_category--container">
-          <h2 class="bestbooks_category--name">${categoryName}</h2>
-          ${bestbooksCategoryList}
-          <button type="button" data-categoryname="${categoryName}">
-            SEE MORE
-          </button>
-        </div>
-      `;
-    })
-    .join('');
+function createCategoryContainer(listName) {
+  const categoryContainer = document.createElement('div');
+  categoryContainer.innerHTML = `
+    <h2 class="categories_list--item">${listName}</h2>
+    <ul class="bookshelf_category--list" id="${listName.replace(
+      / /g,
+      '-'
+    )}-list"></ul>
+    <button>SEE MORE</button>
+  `;
+  return categoryContainer;
 }
 
-renderBestSellerBooks();
+function addBookToCategory(booksListRef, book) {
+  const { _id, book_image, author, title } = book;
+  const bookData = markupBookCard({
+    bookId: _id,
+    bookImage: book_image,
+    bookAuthorName: author,
+    bookTitle: title,
+  });
+
+  const bookItem = document.createElement('li');
+  bookItem.innerHTML = bookData;
+  booksListRef.appendChild(bookItem);
+}
+
+async function markupTopBooksList() {
+  try {
+    const categoriesList = await fetchTopBooksData();
+
+    categoriesList.forEach(category => {
+      const { list_name, books } = category;
+
+      if (books.length === 0) {
+        throw new Error(`Category '${list_name}' is empty.`);
+      }
+
+      const categoryContainer = createCategoryContainer(list_name);
+      const booksListRef = categoryContainer.querySelector(
+        `#${list_name.replace(/ /g, '-')}-list`
+      );
+
+      books.forEach(book => {
+        addBookToCategory(booksListRef, book);
+      });
+
+      topBooksRef.appendChild(categoryContainer);
+    });
+  } catch (error) {
+    console.error('Error marking up top books:', error);
+  }
+}
+
+markupTopBooksList();
