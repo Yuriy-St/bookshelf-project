@@ -64,6 +64,7 @@ export async function onClickCategory(event) {
 
   if (event.target.textContent === 'All categories') {
     renderBestSellerBooks(bookshelfRef);
+    toggleCurrentCategoryColor(event.target);
     return;
   }
 
