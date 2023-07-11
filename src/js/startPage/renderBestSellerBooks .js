@@ -1,14 +1,14 @@
 import {
   renderBookshelf,
   collectCategoryBooks,
-  murkupBookshelfTitle,
-  murkupBookList,
+  markupBookshelfTitle,
+  markupBookList,
 } from '../categories/renderBookshelf';
 import { fetchTopBooks } from '../booksAPI/booksApi';
 import { onClickCategory } from '../categories/renderCategoriesScrollbar';
 
 export default async function renderBestSellerBooks(parentRef) {
-  parentRef.innerHTML = murkupBookshelfTitle('Best Seller Books');
+  parentRef.innerHTML = markupBookshelfTitle('Best Seller Books');
 
   parentRef.insertAdjacentHTML('beforeend', await markupCategoriesBestBooks());
 
@@ -33,7 +33,7 @@ async function markupCategoriesBestBooks() {
       const book = category.books[0];
       const categoryName = book.list_name;
       const booksArray = collectCategoryBooks(category.books);
-      const bestbooksCategoryList = murkupBookList(booksArray);
+      const bestbooksCategoryList = markupBookList(booksArray);
 
       return `
         <div class="bestbooks_category--container">
@@ -54,5 +54,3 @@ function addButtonListeners() {
     button.addEventListener('click', onClickCategory)
   );
 }
-
-// renderBestSellerBooks();

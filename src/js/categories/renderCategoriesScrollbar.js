@@ -16,7 +16,7 @@ export async function renderCategoriesScrollbar(parentRef) {
 
     categoriesContainerRef.insertAdjacentHTML(
       'beforeend',
-      murkupCategoriesScrollbar(categories)
+      markupCategoriesScrollbar(categories)
     );
   } catch {
     onErrorMessage(categoriesContainerRef);
@@ -36,7 +36,7 @@ async function fetchCategories() {
   }
 }
 
-function murkupCategoriesScrollbar(categories) {
+function markupCategoriesScrollbar(categories) {
   return categories
     .map(
       category => `<li class="categories_list--item">${category.list_name}</li>`
