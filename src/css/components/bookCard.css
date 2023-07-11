@@ -97,6 +97,8 @@
   letter-spacing: -0.56px;
   text-transform: uppercase;
   background-color: var(--brand-light);
+  cursor: pointer;
+  user-select: none;
 
   transform: translateY(72px);
   transition: transform var(--transition-dur-and-func);
