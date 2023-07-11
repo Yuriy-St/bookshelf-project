@@ -1,13 +1,16 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   height: 64px;
-  padding: 18px 20px;
+  /* padding: 18px 20px; */
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 144px;
   border-radius: 0px 0px 8px 8px;
-  border: 1.5px solid #111;
-  background: #fff;
+  border: 1.5px solid var(--text-primary-color);
+  background-color: var(--header-bg);
   margin: 0 auto;
 }
 
@@ -53,6 +56,11 @@
   padding-right: 8px;
 }
 
+.header-logo-text {
+  width: 77px;
+  fill: #747bff;
+}
+
 .menu-list {
   display: none;
 }
@@ -68,6 +76,7 @@
 }
 
 .nav-item {
+  padding: 8px 16px;
 }
 
 .nav-icon {
@@ -79,11 +88,11 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  border: 2px solid var(--brand-light);
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #747bff;
 }
 
 @media screen and (max-width: 768px) {

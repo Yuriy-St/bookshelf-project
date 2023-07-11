@@ -6,7 +6,7 @@ let categoriesContainerRef = null;
 export async function renderCategoriesScrollbar(parentRef) {
   try {
     parentRef.innerHTML =
-      '<ul class="categories_list"><li class="categories_list--item current">All categories</li></ul>';
+      '<ul class="categories_list list"><li class="categories_list--item current">All categories</li></ul>';
     categoriesContainerRef = document.querySelector('.categories_list');
     const categories = await fetchCategories();
     // throw new error();

@@ -1,14 +1,9 @@
-.button-brand,
-.button-brand-ghost,
-.link-brand,
-.link-brand-ghost {
+.button {
   border-radius: 999em;
-  padding: 12px 28px;
-  font-weight: 600;
-  line-height: 1.21;
-  color: var(--white-color);
-  transition: background-color var(--transition-dur-and-func),
-    color var(--transition-dur-and-func), border var(--transition-dur-and-func);
+  background-color: var(--brand-light);
+  /* typography */
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
@@ -20,17 +15,9 @@
   }
 }
 
-.button-brand,
-.link-brand {
-  background-color: var(--primary-brand-color);
-}
-
-.button-brand:hover,
-.button-brand:focus,
-.link-brand:hover,
-.link-brand:focus {
-  background-color: var(--secondary-brand-color);
-  color: var(--primary-brand-color);
+.button:hover,
+.button:focus {
+  border: 2px solid var(--brand-dark);
 }
 
 .button-brand-ghost,
