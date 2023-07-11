@@ -4,19 +4,19 @@ export function renderBookshelf(categoryBooks, parentRef) {
   const book = categoryBooks[0];
   const categoryName = book.list_name;
   const booksArray = collectCategoryBooks(categoryBooks);
-  parentRef.innerHTML = murkupBookshelfTitle(categoryName);
+  parentRef.innerHTML = markupBookshelfTitle(categoryName);
   parentRef.insertAdjacentHTML(
     'beforeend',
     murkupBookList(booksArray, parentRef)
   );
 }
 
-export function murkupBookList(booksArray) {
+export function markupBookList(booksArray) {
   const booksList = booksArray.map(book => markupBookCard(book)).join('');
   return `<ul class="bookshelf_category--list">${booksList}</ul>`;
 }
 
-export function murkupBookshelfTitle(categoryName) {
+export function markupBookshelfTitle(categoryName) {
   let titleWordsArray = categoryName.split(' ');
 
   const titleFirstPart = titleWordsArray
