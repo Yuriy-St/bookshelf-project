@@ -5,7 +5,7 @@
         <img class="header-logo" src="./svg/logo.svg" />
         <span>Bookshelf</span>
       </a>
-      <ul class="menu-list list">
+      <ul id="menu-list" class="menu-list list hidden">
         <li class="nav-item">
           <a href="index.html">Home</a>
         </li>
@@ -22,7 +22,12 @@
         <input type="checkbox" />
         <span class="slider round"></span>
       </label>
-      <btn id="login" class="login">Sign up</btn>
+      <btn id="sign-up-header" class="login">Sign up</btn>
+      <div id="login-wrapper" class="login-wrapper hidden">
+        <img class="login-img" src="../img/logo_1.png" />
+        <p class="login-name"></p>
+        <p id="logout" class="logout">logout</p>
+      </div>
     </div>
     <div class="burger-menu">
       <img src="./svg/align-left.svg" />
