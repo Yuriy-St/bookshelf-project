@@ -60,13 +60,31 @@ function onErrorMessage(parentRef) {
 async function onClickCategory(event) {
   if (event.target === categoriesContainerRef) return;
 
-  toggleCurrentCategoryColor(event.target);
+  let categoryClickedName = event.target.textContent;
+  let chosenCategory = event.target;
 
-  const categoryBooks = await fetchBookCategory(event.target.textContent);
+  // console.log(event.srcElement.nodeName === 'BUTTON');
+  //  categoriesContainerRef = document.querySelector('.categories_list');
+  /// CHANGE
+  isButton(event);
+
+  toggleCurrentCategoryColor(chosenCategory);
+
+  const categoryBooks = await fetchBookCategory(categoryClickedName);
   const bookshelfRef = document.querySelector('.bookshelf');
 
   renderBookshelf(categoryBooks, bookshelfRef);
 }
+
+function isButton(event) {
+  if (event.srcElement.nodeName === 'BUTTON') {
+    categoryClickedName = event.target.dataset.categoryname;
+    chosenCategory = [categoriesContainerRef.children].find(
+      listItem => listItem.textContent === categoryClickedName
+    );
+  }
+}
+/// CHANGE END
 
 async function fetchBookCategory(categoryName) {
   try {
