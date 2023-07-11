@@ -9,7 +9,7 @@ export async function renderCategoriesScrollbar(parentRef) {
     parentRef.innerHTML =
       '<ul class="categories_list list"><li class="categories_list--item current">All categories</li></ul>';
     categoriesContainerRef = document.querySelector('.categories_list');
-    const categories = await fetchCategories();
+    const categories = await fetchCategoryList();
     // throw new error();
 
     categoriesContainerRef.addEventListener('click', onClickCategory);
@@ -23,9 +23,9 @@ export async function renderCategoriesScrollbar(parentRef) {
   }
 }
 
-async function fetchCategories() {
+async function fetchCategoryList() {
   try {
-    const categories = await booksAPI.fetchCategories();
+    const categories = await booksAPI.fetchCategoryList();
     categories.sort((firstName, secondName) =>
       firstName.list_name.localeCompare(secondName.list_name)
     );
@@ -80,14 +80,14 @@ export async function onClickCategory(event) {
 
   toggleCurrentCategoryColor(chosenCategory);
 
-  const categoryBooks = await fetchBookCategory(categoryClickedName);
+  const categoryBooks = await fetchBooksByCategory(categoryClickedName);
 
   renderBookshelf(categoryBooks, bookshelfRef);
 }
 
-async function fetchBookCategory(categoryName) {
+async function fetchBooksByCategory(categoryName) {
   try {
-    const category = await booksAPI.fetchBookCategory(categoryName);
+    const category = await booksAPI.fetchBooksByCategory(categoryName);
     return category;
   } catch (error) {
     console.log(error);
