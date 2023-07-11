@@ -14,10 +14,10 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/shopping_list-e7fbacc5.js"></script>
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-2d8d1146.js">
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/booksApi-f996d83f.js">
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-5823c9b1.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/shopping_list-30caffe1.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-9b7358ab.js">
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/_commonjsHelpers-f21564de.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-6abd6ed1.css">
   </head>
   <body class="theme-light">
     <!-- Header -->
@@ -28,7 +28,7 @@
         <img class="header-logo" src="./svg/logo.svg" />
         <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" />
       </a>
-      <ul class="menu-list list">
+      <ul id="menu-list" class="menu-list list hidden">
         <li class="nav-item button">
           <a class="nav-link link" href="index.html">Home</a>
         </li>
@@ -41,7 +41,12 @@
       </ul>
     </div>
     <div class="user-block">
-      <btn class="login">Sign up</btn>
+      <div id="login-wrapper" class="login-wrapper hidden">
+        <img class="login-img" src="../img/logo_1.png" />
+        <p class="login-name"></p>
+        <p id="logout" class="logout">logout</p>
+      </div>
+      <btn id="sign-up-header" class="login">Sign up</btn>
     </div>
     <div class="burger-menu">
       <img src="./svg/align-left.svg" />
