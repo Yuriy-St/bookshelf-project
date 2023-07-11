@@ -1,6 +1,8 @@
 import Notiflix from 'notiflix';
 import Authentication from '../authentication';
-import { closeModal } from './modalWindow';
+import { closeSignUp } from './modalWindow';
+import { saveSession } from '../storage/saveUser';
+import { checkSession } from './checkSession';
 
 const singupForm = document.querySelector('#registration-form');
 
@@ -22,7 +24,10 @@ singupForm.addEventListener('submit', async event => {
     if (registerUser) {
       Notiflix.Notify.success('You have successfully registered!');
       event.target.reset();
-      closeModal();
+      closeSignUp();
+      saveSession(registerUser); //save session to localstorage
+
+      checkSession(); //check session, add remove class on header elements
     }
   } catch (err) {
     if (err.code === 'auth/email-already-in-use') {
