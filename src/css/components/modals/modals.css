@@ -3,8 +3,8 @@
   width: 335px;
   height: 384px;
   padding: 40px 20px;
-  border: 2px solid #111;
-  background: #f6f6f6;
+  border: 2px solid var(--modal-border);
+  background: var(--body-bg);
   border-radius: 18px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -18,13 +18,12 @@
 }
 
 .singin-modal {
-  /* height: 0; */
   height: auto;
 }
 
 @media screen and (min-width: 768px) {
   .singin-modal {
-    padding: 80px 40px 80px 40px;
+    padding: 80px 40px 40px 40px;
   }
 }
 
@@ -32,6 +31,40 @@
   position: absolute;
   top: 14px;
   right: 14px;
+
+  background-color: transparent;
+}
+
+.close-button svg path {
+  stroke: var(--modal-icons-color);
+}
+
+.close-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .close-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    background-color: transparent;
+  }
+
+  .close-button svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.close-button:hover svg path {
+  stroke: var(--brand-dark);
+
+  transition-property: stroke;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-wrapper {
@@ -49,16 +82,33 @@
   padding: 0 24px;
   outline: none;
   border-radius: 40px;
-  border: 2px solid #111;
+  color: var(--text-primary-color);
+  border: 2px solid var(--modal-border);
+  background-color: var(--modal-field-background);
 
   transition-property: color, border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-input:focus {
-  /* color: var(--accent-color);
-  border-color: currentColor; */
+.input-wrapper svg path {
+  stroke: var(--modal-icons-color);
+
+  transition-property: stroke;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-wrapper:hover .input-field {
+  border-color: var(--brand-dark);
+}
+
+.input-wrapper:hover .input-field::placeholder {
+  color: var(--brand-dark);
+}
+
+.input-wrapper:hover svg path {
+  stroke: var(--brand-dark);
 }
 
 @media screen and (min-width: 768px) {
@@ -69,7 +119,7 @@
 }
 
 .input-field::placeholder {
-  color: #111;
+  color: var(--text-primary-color);
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 16px;
   font-style: normal;
@@ -77,6 +127,10 @@
   line-height: 1.12;
   letter-spacing: -0.16px;
   text-transform: uppercase;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
@@ -93,20 +147,15 @@
 
   margin-bottom: 14px;
   padding: 0;
-  color: #f3f3f3;
+  color: var(--text-inversed-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: -0.16px;
   text-transform: uppercase;
-  background: #111;
+  background: var(--modal-button-background);
   border-radius: 40px;
-}
-
-.form-button:focus {
-  /* color: var(--accent-color);
-  border-color: currentColor; */
 }
 
 @media screen and (min-width: 768px) {
@@ -125,11 +174,17 @@
 .input-svg {
   position: absolute;
   right: 24px;
+
+  width: 18px;
+  height: 18px;
 }
 
 @media screen and (min-width: 768px) {
   .input-svg {
     right: 32px;
+
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -142,13 +197,17 @@
 
 .toggle-button {
   background-color: transparent;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--text-transparent);
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
   letter-spacing: -0.14px;
   text-transform: uppercase;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
@@ -165,8 +224,6 @@
   text-decoration: underline;
 }
 
-.toggle-button:hover,
-.toggle-button:active {
+.toggle-button:hover {
   color: #4f2ee8;
-  text-decoration: underline;
 }

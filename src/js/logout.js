@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
-import Authentication from '../authentication';
-import { removeSession } from '../storage/saveUser';
-import { checkSession } from './checkSession';
+import Authentication from './authentication';
+import { removeSession } from './storage/saveUser';
+import { checkSession } from './modalWindow/checkSession';
 
 const logout = document.querySelector('#logout');
 
@@ -19,8 +19,14 @@ logout.addEventListener('click', async event => {
 
       removeSession();
       checkSession(); //check session, add remove class on header elements
+
+      redirectAfterLogout();
     }
   } catch (err) {
-    console.log('123', err);
+    console.log(err);
   }
 });
+
+function redirectAfterLogout() {
+  window.location.href = '/index.html';
+}
