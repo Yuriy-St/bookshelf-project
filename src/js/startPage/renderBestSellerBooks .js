@@ -44,5 +44,3 @@ async function markupCategoriesBestBooks() {
     })
     .join('');
 }
-
-renderBestSellerBooks();
