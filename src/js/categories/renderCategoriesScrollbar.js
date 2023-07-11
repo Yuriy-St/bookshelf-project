@@ -1,5 +1,6 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
+import renderBestSellerBooks from '../startPage/renderBestSellerBooks ';
 
 let categoriesContainerRef = null;
 
@@ -57,34 +58,31 @@ function onErrorMessage(parentRef) {
     `;
 }
 
-async function onClickCategory(event) {
+export async function onClickCategory(event) {
   if (event.target === categoriesContainerRef) return;
+  const bookshelfRef = document.querySelector('.bookshelf');
+
+  if (event.target.textContent === 'All categories') {
+    renderBestSellerBooks(bookshelfRef);
+    return;
+  }
 
   let categoryClickedName = event.target.textContent;
   let chosenCategory = event.target;
 
-  // console.log(event.srcElement.nodeName === 'BUTTON');
-  //  categoriesContainerRef = document.querySelector('.categories_list');
-  /// CHANGE
-  isButton(event);
+  if (event.srcElement.nodeName === 'BUTTON') {
+    categoryClickedName = event.target.dataset.categoryname;
+    chosenCategory = [...categoriesContainerRef.children].find(
+      listItem => listItem.textContent === categoryClickedName
+    );
+  }
 
   toggleCurrentCategoryColor(chosenCategory);
 
   const categoryBooks = await fetchBookCategory(categoryClickedName);
-  const bookshelfRef = document.querySelector('.bookshelf');
 
   renderBookshelf(categoryBooks, bookshelfRef);
 }
-
-function isButton(event) {
-  if (event.srcElement.nodeName === 'BUTTON') {
-    categoryClickedName = event.target.dataset.categoryname;
-    chosenCategory = [categoriesContainerRef.children].find(
-      listItem => listItem.textContent === categoryClickedName
-    );
-  }
-}
-/// CHANGE END
 
 async function fetchBookCategory(categoryName) {
   try {

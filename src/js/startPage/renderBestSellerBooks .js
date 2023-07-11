@@ -5,11 +5,14 @@ import {
   murkupBookList,
 } from '../categories/renderBookshelf';
 import { fetchTopBooks } from '../booksAPI/booksApi';
+import { onClickCategory } from '../categories/renderCategoriesScrollbar';
 
 export default async function renderBestSellerBooks(parentRef) {
   parentRef.innerHTML = murkupBookshelfTitle('Best Seller Books');
 
   parentRef.insertAdjacentHTML('beforeend', await markupCategoriesBestBooks());
+
+  addButtonListeners();
 }
 
 async function fetchTopBooksData() {
@@ -45,4 +48,11 @@ async function markupCategoriesBestBooks() {
     .join('');
 }
 
-renderBestSellerBooks();
+function addButtonListeners() {
+  const buttonsArray = document.querySelectorAll('.button-brand-ghost');
+  buttonsArray.forEach(button =>
+    button.addEventListener('click', onClickCategory)
+  );
+}
+
+// renderBestSellerBooks();
