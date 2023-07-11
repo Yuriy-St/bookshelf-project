@@ -1,0 +1,26 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  row-gap: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    flex-direction: row;
+    margin-bottom: 100px;
+    column-gap: 32px;
+    row-gap: 66px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    flex-direction: column;
+  }
+}
+
+.charity {
+}
+.bookshelf {
+}

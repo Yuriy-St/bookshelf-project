@@ -4,19 +4,19 @@ export function renderBookshelf(categoryBooks, parentRef) {
   const book = categoryBooks[0];
   const categoryName = book.list_name;
   const booksArray = collectCategoryBooks(categoryBooks);
-  parentRef.innerHTML = murkupBookshelfTitle(categoryName);
+  parentRef.innerHTML = markupBookshelfTitle(categoryName);
   parentRef.insertAdjacentHTML(
     'beforeend',
-    murkupBookList(booksArray, parentRef)
+    markupBookList(booksArray, parentRef)
   );
 }
 
-function murkupBookList(booksArray) {
+export function markupBookList(booksArray) {
   const booksList = booksArray.map(book => markupBookCard(book)).join('');
   return `<ul class="bookshelf_category--list">${booksList}</ul>`;
 }
 
-function murkupBookshelfTitle(categoryName) {
+export function markupBookshelfTitle(categoryName) {
   let titleWordsArray = categoryName.split(' ');
 
   const titleFirstPart = titleWordsArray
@@ -28,7 +28,7 @@ function murkupBookshelfTitle(categoryName) {
   return `<h1 class="bookshelf_category--title">${titleFirstPart} <span class="blue-last-word">${titleLastPart}</span></h1>`;
 }
 
-function collectCategoryBooks(category) {
+export function collectCategoryBooks(category) {
   const booksArray = category.map(book => {
     let bookId = book._id;
     let bookAuthorName = book.author;

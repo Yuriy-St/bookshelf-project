@@ -14,7 +14,8 @@ const db = getDatabase();
 
 // add Book to list
 export async function addBookToList(item) {
-  const { _id, list_name, author, description, book_image, buy_links } = item;
+  const { _id, list_name, author, description, title, book_image, buy_links } =
+    item;
 
   const userListRef = ref(db, `users/${auth.currentUser.uid}/list`);
   const newBookRef = push(userListRef);
@@ -24,6 +25,7 @@ export async function addBookToList(item) {
       list_name,
       author,
       description,
+      title,
       book_image,
       buy_links,
     });

@@ -20,9 +20,8 @@
 
   /* стандартний час і функція для транзишинів */
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.theme-light {
+  /* кольори для світлої теми */
   --active-page-btn-color: var(--brand-black);
   --body-bg: var(--brand-mist-color);
   --header-bg: var(--white);
@@ -42,12 +41,17 @@
   --text-primary-color: var(--brand-black);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: rgba(17, 17, 17, 0.6);
+
+  --modal-border: var(--brand-black);
+  --modal-field-background: var(--white);
+  --modal-button-background: var(--brand-black);
+  --modal-icons-color: var(--brand-black);
 }
 
 .theme-dark {
   --active-page-btn-color: var(--white);
   --body-bg: #202024;
-  --header-bg: #var(--brand-black);
+  --header-bg: var(--brand-black);
   --brand-dark-liniear-gradient: linear-gradient(
     180deg,
     #4f2ee8 0%,
@@ -58,10 +62,15 @@
   --logo-light-color: var(--brand-mist-color);
   --logo-text-color: #f3f3f3;
   --pagination-btn-left-text-color: var(--white);
-  --secondary-bg-color: #var(--brand-black);
+  --secondary-bg-color: var(--brand-black);
   --slider-color: #202024;
   --text-inversed-color: var(--black);
   --text-primary-color: var(--white);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: #a6a6a7;
+
+  --modal-border: var(--brand-mist-color);
+  --modal-field-background: var(--body-bg);
+  --modal-button-background: var(--white);
+  --modal-icons-color: var(--brand-mist-color);
 }

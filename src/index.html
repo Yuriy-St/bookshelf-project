@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- check session before loading html -->
+    <script type="module" src="./js/firebase/firebase.js"></script>
+    <script type="module" src="./js/modalWindow/checkSession.js"></script>
     <!-- Title -->
     <title>Bookshelf</title>
 
@@ -33,14 +35,18 @@
         </aside>
 
         <section class="bookshelf">Books list</section>
+        <section class="shopinglist visually-hidden">Shopping list</section>
       </div>
     </main>
 
-    <load src="partials/singUp.html" />
+    <load src="partials/signUp.html" />
+    <load src="partials/signIn.html" />
+
     <script type="module" src="./main.js"></script>
-    <script type="module" src="./js/firebase/firebase.js"></script>
+
     <script type="module" src="./js/modalWindow/modalWindow.js"></script>
-    <script type="module" src="./js/modalWindow/signup.js"></script>
-    <script type="module" src="./js/shoppingList/modalBook.js"></script>
+    <script type="module" src="./js/modalWindow/signUp.js"></script>
+    <script type="module" src="./js/modalWindow/singIn.js"></script>
+    <script type="module" src="./js/modalWindow/logout.js"></script>
   </body>
 </html>

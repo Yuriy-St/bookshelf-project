@@ -1,8 +1,8 @@
-/* body {
-  background-color: var(--light-background-color);
+body {
+  background-color: var(--body-bg);
   font-size: 14px;
-  line-height: 1.29;
-  font-family: 'Montserrat';
-  letter-spacing: -0.02em;
-  color: var(--primary-text-color);
-} */
+  font-family: 'DM Sans';
+  line-height: 1.28;
+  letter-spacing: -0.56px;
+  color: var(--text-primary-color);
+}
