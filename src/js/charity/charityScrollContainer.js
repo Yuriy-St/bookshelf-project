@@ -81,5 +81,5 @@ function onScrollTop() {
 }
 
 function onTop() {
-  imgArrow.classList.remove('arrow-up');
+    imgArrow.classList.remove('arrow-up');
 }
