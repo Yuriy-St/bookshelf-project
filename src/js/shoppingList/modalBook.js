@@ -1,12 +1,36 @@
-import { fetchBook } from '../booksAPI/booksApi';
-import { addBookToList, deleteBookFromList, getListOfBooks } from '../dbAPI/dbAPI';
+import { async } from '@firebase/util';
+import { fetchBookById } from '../booksAPI/booksApi';
+import {
+  addBookToList,
+  deleteBookFromList,
+  getListOfBooks,
+} from '../dbAPI/dbAPI';
 
-export async function createBookModal(bookId) {
+export default async function renderBookModal(bookId) {
   try {
-    const book = await fetchBook(bookId);
+    const bookModalMarkup = await markupBookModal(bookId);
+    document.body.insertAdjacentHTML('beforeend', bookModalMarkup);
+
+    const actionButton = document.querySelector('.action-button');
+    actionButton.addEventListener(
+      'click',
+      handleActionButtonClick.bind(null, bookId, isInShoppingList)
+    );
+  } catch (error) {
+    console.log('Помилка при отриманні даних:', error);
+  }
+}
+
+async function markupBookModal(bookId) {
+  try {
+    const book = await fetchBookById(bookId);
     const isInShoppingList = await isBookInShoppingList(bookId);
 
-    const modalHTML = `
+    const buyLinksMarkup = book.buy_links
+      .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
+      .join('');
+
+    const markup = `
       <div class="modal">
         <div class="modal-content">
           <img src="${book.book_image}" alt="Book Cover">
@@ -14,17 +38,17 @@ export async function createBookModal(bookId) {
           <p>Автор: ${book.author}</p>
           <p>${book.description}</p>
           <ul>
-            ${book.buy_links.map(link => `<li><a href="${link.url}">${link.label}</a></li>`).join('')}
+            ${buyLinksMarkup}
           </ul>
-          <button class="action-button">${isInShoppingList ? 'Видалити з Shopping List' : 'Додати до Shopping List'}</button>
+          <button class="action-button">${
+            isInShoppingList
+              ? 'Видалити з Shopping List'
+              : 'Додати до Shopping List'
+          }</button>
         </div>
       </div>
     `;
-
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    const actionButton = document.querySelector('.action-button');
-    actionButton.addEventListener('click', handleActionButtonClick.bind(null, bookId, isInShoppingList));
+    return markup;
   } catch (error) {
     console.log('Помилка при отриманні даних:', error);
   }
