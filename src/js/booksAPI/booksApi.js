@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const BASE_API = 'https://books-backend.p.goit.global/books/';
 
-export async function fetchCategories() {
+export async function fetchCategoryList() {
   try {
     const response = await axios.get(`${BASE_API}/category-list`);
     return processResponse(response);
@@ -20,7 +20,7 @@ export async function fetchTopBooks() {
   }
 }
 
-export async function fetchBookCategory(category) {
+export async function fetchBooksByCategory(category) {
   try {
     const response = await axios.get(
       `${BASE_API}/category?category=${category}`
@@ -31,7 +31,7 @@ export async function fetchBookCategory(category) {
   }
 }
 
-export async function fetchBook(bookId) {
+export async function fetchBookById(bookId) {
   try {
     const response = await axios.get(`${BASE_API}/${bookId}`);
     return processResponse(response);
