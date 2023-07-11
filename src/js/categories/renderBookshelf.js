@@ -7,7 +7,7 @@ export function renderBookshelf(categoryBooks, parentRef) {
   parentRef.innerHTML = markupBookshelfTitle(categoryName);
   parentRef.insertAdjacentHTML(
     'beforeend',
-    murkupBookList(booksArray, parentRef)
+    markupBookList(booksArray, parentRef)
   );
 }
 
