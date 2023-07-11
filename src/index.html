@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- check session before loading html -->
+    <script type="module" src="./js/firebase/firebase.js"></script>
+    <script type="module" src="./js/modalWindow/checkSession.js"></script>
+    <!-- Title -->
+    <title>Bookshelf</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
 
-  <!-- Title -->
-  <title>Bookshelf</title>
+  <body>
+    <!-- Header -->
+    <load src="partials/header.html" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-</head>
+    <!-- Main content -->
+    <main>
+      <div class="home container">
+        <aside class="sidebar">
+          <!-- Categories -->
+          <section class="categories">
+            <p>Categories list</p>
+          </section>
+          <!-- Charity -->
+          <section class="charity"></section>
+        </aside>
 
-<body>
-  <!-- Header -->
-  <load src="partials/header.html" />
+        <section class="bookshelf">Books list</section>
+        <section class="shopinglist visually-hidden">Shopping list</section>
+      </div>
+    </main>
 
-  <!-- mobile-menu -->
-  <load srcsrc="partials/mobile-menu.html" />
-  <link rel="stylesheet" href="./css/components/mobile-menu.css" />
+    <load src="partials/signUp.html" />
+    <load src="partials/signIn.html" />
 
+    <script type="module" src="./main.js"></script>
 
-  <!-- Main content -->
-  <main>
-    <div class="container">
-      <aside class="sidebar">
-        <!-- Categories -->
-        <section class="categories">
-          <ul class="categories_list">
-            <li class="categories_list--item current">All categories</li>
-          </ul>
-        </section>
-
-        <!-- Charity -->
-        <section class="charity">
-          <p>Charity list</p>
-        </section>
-      </aside>
-
-      <section class="bookshelf">Books list</section>
-    </div>
-  </main>
-
-  <script type="module" src="./main.js"></script>
-</body>
-
+    <script type="module" src="./js/modalWindow/modalWindow.js"></script>
+    <script type="module" src="./js/modalWindow/signUp.js"></script>
+    <script type="module" src="./js/modalWindow/singIn.js"></script>
+    <script type="module" src="./js/modalWindow/logout.js"></script>
+  </body>
 </html>
