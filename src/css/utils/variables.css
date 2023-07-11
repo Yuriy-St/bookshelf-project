@@ -41,11 +41,6 @@
   --text-primary-color: var(--brand-black);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: rgba(17, 17, 17, 0.6);
-
-  --modal-border: var(--brand-black);
-  --modal-field-background: var(--white);
-  --modal-button-background: var(--brand-black);
-  --modal-icons-color: var(--brand-black);
 }
 
 .theme-dark {
@@ -73,4 +68,7 @@
   --modal-field-background: var(--body-bg);
   --modal-button-background: var(--white);
   --modal-icons-color: var(--brand-mist-color);
+
+  --text-categorylist-color: rgba(255, 255, 255, 0.6);
+  --slider-categorylist-color: rgba(17, 17, 17, 0.6);
 }
