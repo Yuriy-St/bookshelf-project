@@ -22,7 +22,7 @@ function markupCharityList() {
     <p class="counter">${addLeadingZero(i + 1)}</p>
     <a href=${e.url} target="_blank"><img src=${e.img} alt="${
       e.title
-    }" height="32px" class="foundation-logo"/></a></li>`
+    }" class="foundation-logo"/></a></li>`
   );
 }
 
@@ -81,5 +81,5 @@ function onScrollTop() {
 }
 
 function onTop() {
-    imgArrow.classList.remove('arrow-up');
+  imgArrow.classList.remove('arrow-up');
 }
