@@ -87,15 +87,17 @@ export async function onClickCategory(event) {
 
 async function fetchBooksByCategory(categoryName) {
   try {
-    const category = await booksAPI.fetchBooksByCategory(categoryName);
-    return category;
+    const categoryBooks = await booksAPI.fetchBooksByCategory(categoryName);
+    return categoryBooks;
   } catch (error) {
     console.log(error);
   }
 }
 
-function toggleCurrentCategoryColor(clickedCategory) {
-  let currentCategory = document.querySelector('.current');
-  currentCategory.classList.remove('current');
-  clickedCategory.classList.add('current');
+function toggleCurrentCategoryColor(clickedCategoryRef) {
+  let currentCategoryRef = document.querySelector(
+    '.categories_list--item.current'
+  );
+  currentCategoryRef.classList.remove('current');
+  clickedCategoryRef.classList.add('current');
 }
