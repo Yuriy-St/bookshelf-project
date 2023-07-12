@@ -46,6 +46,8 @@
 }
 
 .theme-dark {
+  --color-svg-shopp-list-dark: var(--white);
+
   --active-page-btn-color: var(--white);
   --body-bg: #202024;
   --header-bg: var(--brand-black);

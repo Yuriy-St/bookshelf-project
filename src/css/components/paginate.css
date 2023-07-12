@@ -37,6 +37,7 @@
   font-weight: 700;
   line-height: 36px;
   margin: 0 3px 0 3px;
+  transition: var(--transition-dur-and-func);
 }
 @media screen and (min-width: 768px) {
   .tui-pagination .tui-page-btn {
@@ -71,19 +72,23 @@
 }
 .tui-last {
   background: var(--brand-light);
+  transition: var(--transition-dur-and-func);
 }
 .tui-pagination .tui-is-selected:hover {
   background: var(--active-page-btn-color);
 }
 .tui-next {
   background: var(--brand-light);
+  transition: var(--transition-dur-and-func);
 }
 
 .tui-prev {
   background: var(--brand-light);
+  transition: var(--transition-dur-and-func);
 }
 .tui-first {
   background: var(--brand-light);
+  transition: var(--transition-dur-and-func);
 }
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination strong.tui-first-child {
@@ -197,17 +202,27 @@
 }
 
 .tui-pagination .tui-ico-ellip {
-  width: 14px;
+  width: 12px;
   height: 0px;
   margin-top: 12px;
   vertical-align: top;
   background-position: 2px -24px;
   color: var(--active-page-btn-color);
   font-size: 15px;
+  letter-spacing: 2px;
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-ico-ellip {
+    width: 14px;
+
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
 }
 .tui-pagination .tui-is-disabled {
   background-color: var(--brand-black);
   border: 1px solid var(--brand-black);
+  transition: var(--transition-dur-and-func);
 }
 
 .tui-pagination .tui-is-disabled:hover {
