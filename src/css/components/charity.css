@@ -121,8 +121,7 @@
   }
 }
 
-.btn-scroll:hover,
-.btn-scroll:focus {
+.btn-scroll:hover {
   background-color: var(--brand-dark);
   transition: background-color var(--transition-dur-and-func);
 }
@@ -170,10 +169,10 @@
   }
 } */
 
-.btn-scroll:focus .arrow-down {
+/* .btn-scroll:focus .arrow-down {
   fill: var(--white);
   transition: fill var(--transition-dur-and-func);
-}
+} */
 
 /* @media screen and (min-width: 1440px) {
   .btn-scroll:focus .arrow-down {
