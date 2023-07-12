@@ -1,4 +1,4 @@
-import"./main-38014b32.js";import{f as fs,a as gs,b as ds}from"./booksApi-f996d83f.js";function ps(t={}){if(typeof t!="object")return;const{bookId:e="",bookImage:n="../../img/book_card_plug.png",bookAuthorName:i="Author was stolen",bookTitle:s="Opps, something is wrong :("}=t;return`<li class="book_card" data-bookId="${e}">
+import"./main-47537616.js";import{f as fs,a as gs,b as ds}from"./booksApi-f996d83f.js";function ps(t={}){if(typeof t!="object")return;const{bookId:e="",bookImage:n="../../img/book_card_plug.png",bookAuthorName:i="Author was stolen",bookTitle:s="Opps, something is wrong :("}=t;return`<li class="book_card" data-bookId="${e}">
       <div class="book_container--img">
         <img src="${n}" alt="${s}, Author:${i}" class="book_card--img" />
         <p class="quick-view">quick view</p>
@@ -36,7 +36,7 @@ import"./main-38014b32.js";import{f as fs,a as gs,b as ds}from"./booksApi-f996d8
     </div>
     <ul class="charity-list"></ul>
     <button class="btn-scroll" type="button">
-    <svg class="arrow-down" width="20" height="20">
+    <svg class="arrow-down" >
       <use href="./svg/charity.svg#downarrow"></use>
     </svg>
     </button>`;const J=document.querySelector(".charity-list"),bh=document.querySelector(".btn-scroll"),fn=document.querySelector(".arrow-down");function Nh(){return kh.map((t,e)=>`<li class="charity-item">
