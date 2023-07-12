@@ -40,7 +40,7 @@
 }
 
 .categories_list--item {
-  color: var(--text-transparent);
+  color: var(--text-categorylist-color);
   font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 1.125;
@@ -73,7 +73,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--slider-color);
+  background-color: var(--slider-categorylist-color);
   border-radius: 12px;
 }
 

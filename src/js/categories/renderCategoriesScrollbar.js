@@ -1,6 +1,7 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
 import renderBestSellerBooks from '../startPage/renderBestSellerBooks ';
+import * as loader from '../loader';
 
 let categoriesContainerRef = null;
 
@@ -9,15 +10,16 @@ export async function renderCategoriesScrollbar(parentRef) {
     parentRef.innerHTML =
       '<ul class="categories_list list"><li class="categories_list--item current">All categories</li></ul>';
     categoriesContainerRef = document.querySelector('.categories_list');
-    const categories = await fetchCategoryList();
-    // throw new error();
+    loader.add(categoriesContainerRef);
 
-    categoriesContainerRef.addEventListener('click', onClickCategory);
+    const categories = await fetchCategoryList();
+    loader.remove(categoriesContainerRef);
 
     categoriesContainerRef.insertAdjacentHTML(
       'beforeend',
       markupCategoriesScrollbar(categories)
     );
+    categoriesContainerRef.addEventListener('click', onClickCategory);
   } catch {
     onErrorMessage(categoriesContainerRef);
   }
@@ -78,10 +80,13 @@ export async function onClickCategory(event) {
     );
   }
 
+  bookshelfRef.innerHTML = '';
+  loader.add(bookshelfRef);
   toggleCurrentCategoryColor(chosenCategory);
 
   const categoryBooks = await fetchBooksByCategory(categoryClickedName);
 
+  loader.remove(bookshelfRef);
   renderBookshelf(categoryBooks, bookshelfRef);
 }
 
