@@ -1,14 +1,19 @@
 import { markupBookCard } from '../bookCard/bookCard';
 
 export function renderBookshelf(categoryBooks, parentRef) {
+  const bookshelfRef = parentRef || document.querySelector('.bookshelf');
+
+  const bookshelfMarkup = markupBookshelf(categoryBooks);
+  bookshelfRef.innerHTML = bookshelfMarkup;
+}
+
+function markupBookshelf(categoryBooks) {
   const book = categoryBooks[0];
   const categoryName = book.list_name;
+  const categoryNameMarkup = markupBookshelfTitle(categoryName);
   const booksArray = collectCategoryBooks(categoryBooks);
-  parentRef.innerHTML = markupBookshelfTitle(categoryName);
-  parentRef.insertAdjacentHTML(
-    'beforeend',
-    markupBookList(booksArray, parentRef)
-  );
+  const bookListMarkup = markupBookList(booksArray);
+  return `${categoryNameMarkup} ${bookListMarkup}`;
 }
 
 export function markupBookList(booksArray) {

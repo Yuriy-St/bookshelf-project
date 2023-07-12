@@ -2,27 +2,28 @@ import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
 import renderBestSellerBooks from '../startPage/renderBestSellerBooks ';
 import * as loader from '../loader';
-
+import * as errorHandler from '../errorHandler';
 let categoriesContainerRef = null;
 
 export async function renderCategoriesScrollbar(parentRef) {
   try {
-    parentRef.innerHTML =
-      '<ul class="categories_list list"><li class="categories_list--item current">All categories</li></ul>';
+    loader.add(parentRef);
+    parentRef.innerHTML = await markupCategoriesUlContainer();
     categoriesContainerRef = document.querySelector('.categories_list');
-    loader.add(categoriesContainerRef);
-
-    const categories = await fetchCategoryList();
-    loader.remove(categoriesContainerRef);
-
-    categoriesContainerRef.insertAdjacentHTML(
-      'beforeend',
-      markupCategoriesScrollbar(categories)
-    );
     categoriesContainerRef.addEventListener('click', onClickCategory);
   } catch {
-    onErrorMessage(categoriesContainerRef);
+    errorHandler.renderError(categoriesContainerRef);
   }
+}
+
+async function markupCategoriesUlContainer() {
+  const categories = await fetchCategoryList();
+  const categoriesMarkup = markupScrollbarCategories(categories);
+  const categoriesUlContainerMarkup = `<ul class="categories_list list">
+      <li id="all-categories" class="categories_list--item current">All categories</li>
+      ${categoriesMarkup}
+    </ul>`;
+  return categoriesUlContainerMarkup;
 }
 
 async function fetchCategoryList() {
@@ -38,7 +39,7 @@ async function fetchCategoryList() {
   }
 }
 
-function markupCategoriesScrollbar(categories) {
+function markupScrollbarCategories(categories) {
   return categories
     .map(
       category => `<li class="categories_list--item">${category.list_name}</li>`
@@ -46,48 +47,17 @@ function markupCategoriesScrollbar(categories) {
     .join('');
 }
 
-function onErrorMessage(parentRef) {
-  parentRef.classList.add('error');
-  parentRef.innerHTML = `
-    <div class="error_container">
-      <p class="error_container--message">
-          Oops! Sorry, but we weren't able to get a category list.
-          <br>
-          Please,
-          try reload the page.
-      </p>
-    </div>
-    `;
-}
-
 export async function onClickCategory(event) {
-  if (event.target === categoriesContainerRef) return;
-  const bookshelfRef = document.querySelector('.bookshelf');
+  const { target: targetRef } = event;
 
-  if (event.target.textContent === 'All categories') {
-    renderBestSellerBooks(bookshelfRef);
-    toggleCurrentCategoryColor(event.target);
+  if (targetRef === categoriesContainerRef) return;
+
+  if (targetRef.textContent === 'All categories') {
+    renderAllBookCategories();
     return;
   }
 
-  let categoryClickedName = event.target.textContent;
-  let chosenCategory = event.target;
-
-  if (event.srcElement.nodeName === 'BUTTON') {
-    categoryClickedName = event.target.dataset.categoryname;
-    chosenCategory = [...categoriesContainerRef.children].find(
-      listItem => listItem.textContent === categoryClickedName
-    );
-  }
-
-  bookshelfRef.innerHTML = '';
-  loader.add(bookshelfRef);
-  toggleCurrentCategoryColor(chosenCategory);
-
-  const categoryBooks = await fetchBooksByCategory(categoryClickedName);
-
-  loader.remove(bookshelfRef);
-  renderBookshelf(categoryBooks, bookshelfRef);
+  renderBookCategory(targetRef);
 }
 
 async function fetchBooksByCategory(categoryName) {
@@ -105,4 +75,23 @@ function toggleCurrentCategoryColor(clickedCategoryRef) {
   );
   currentCategoryRef.classList.remove('current');
   clickedCategoryRef.classList.add('current');
+}
+
+export async function renderBookCategory(targetRef) {
+  try {
+    // loader.add(targetRef);
+    const categoryClickedName = targetRef.textContent;
+    const categoryBooks = await fetchBooksByCategory(categoryClickedName);
+
+    toggleCurrentCategoryColor(targetRef);
+    renderBookshelf(categoryBooks);
+  } catch (error) {
+    onErrorMessage(targetRef);
+  }
+}
+
+export function renderAllBookCategories() {
+  renderBestSellerBooks();
+  const allCategoriesLinkRef = document.getElementById('all-categories');
+  toggleCurrentCategoryColor(allCategoriesLinkRef);
 }
