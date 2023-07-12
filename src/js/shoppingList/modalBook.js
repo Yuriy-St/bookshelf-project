@@ -8,7 +8,8 @@ import {
 
 export default async function renderBookModal(bookId) {
   try {
-    const bookModalMarkup = await markupBookModal(bookId);
+    const isInShoppingList = await isBookInShoppingList(bookId);
+    const bookModalMarkup = await markupBookModal(bookId, isBookInShoppingList);
     document.body.insertAdjacentHTML('beforeend', bookModalMarkup);
 
     const actionButton = document.querySelector('.action-button');
@@ -21,10 +22,9 @@ export default async function renderBookModal(bookId) {
   }
 }
 
-async function markupBookModal(bookId) {
+async function markupBookModal(bookId, isInList) {
   try {
     const book = await fetchBookById(bookId);
-    const isInShoppingList = await isBookInShoppingList(bookId);
 
     const buyLinksMarkup = book.buy_links
       .map(link => `<li><a href="${link.url}">${link.label}</a></li>`)
@@ -41,9 +41,7 @@ async function markupBookModal(bookId) {
             ${buyLinksMarkup}
           </ul>
           <button class="action-button">${
-            isInShoppingList
-              ? 'Видалити з Shopping List'
-              : 'Додати до Shopping List'
+            isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'
           }</button>
         </div>
       </div>
@@ -55,6 +53,7 @@ async function markupBookModal(bookId) {
 }
 
 async function isBookInShoppingList(bookId) {
+  return false;
   const listOfBooks = await getListOfBooks();
   return listOfBooks.some(book => book._id === bookId);
 }
