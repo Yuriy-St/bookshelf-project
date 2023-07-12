@@ -1,3 +1,4 @@
+import './js/mobileMenu/mobileMenu'; // TODO remove, just for test and style settings
 import { renderCategoriesScrollbar } from './js/categories';
 import renderCharityList from './js/charity/charityScrollContainer';
 import * as themeSwitcher from './js/themeSwitcher';
