@@ -6,11 +6,14 @@ import {
 } from '../categories/renderBookshelf';
 import { fetchTopBooks } from '../booksAPI/booksApi';
 import { onClickCategory } from '../categories/renderCategoriesScrollbar';
+import * as loader from '../loader';
 
 export default async function renderBestSellerBooks(parentRef) {
   parentRef.innerHTML = markupBookshelfTitle('Best Seller Books');
+  loader.add(parentRef);
 
   parentRef.insertAdjacentHTML('beforeend', await markupCategoriesBestBooks());
+  loader.remove(parentRef);
 
   addButtonListeners();
 }

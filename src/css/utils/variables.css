@@ -41,6 +41,8 @@
   --text-primary-color: var(--brand-black);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: rgba(17, 17, 17, 0.6);
+
+  --loader-color: var(--text-transparent);
 }
 
 .theme-dark {
@@ -71,4 +73,6 @@
 
   --text-categorylist-color: rgba(255, 255, 255, 0.6);
   --slider-categorylist-color: rgba(17, 17, 17, 0.6);
+
+  --loader-color: var(--logo-text-color);
 }
