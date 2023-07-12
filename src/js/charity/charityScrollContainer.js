@@ -55,7 +55,6 @@ const observerToTop = new IntersectionObserver(function (entries) {
 }, options);
 
 btnScroll.addEventListener('click', onClick);
-// btnScroll.addEventListener('click', onClick);
 
 function onClick() {
   observerToDown.observe(charityList.lastElementChild);
@@ -85,3 +84,14 @@ function onTop() {
   imgArrow.classList.remove('arrow-up');
 }
 
+btnScroll.addEventListener('touchstart', onFocusOn)
+
+function onFocusOn() {
+    btnScroll.classList.add("focus")
+}
+
+btnScroll.addEventListener('touchend', onFocusOff)
+
+function onFocusOff() {
+    btnScroll.classList.remove("focus")
+}

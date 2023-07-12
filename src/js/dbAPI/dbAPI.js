@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+import { getUserSession } from '../storage/saveUser';
 import { getAuth } from 'firebase/auth';
 import {
   getDatabase,
@@ -8,16 +10,13 @@ import {
   remove,
   child,
 } from 'firebase/database';
-
-const auth = getAuth();
+const userSession = getUserSession();
 const db = getDatabase();
-
 // add Book to list
 export async function addBookToList(item) {
   const { _id, list_name, author, description, title, book_image, buy_links } =
     item;
-
-  const userListRef = ref(db, `users/${auth.currentUser.uid}/list`);
+  const userListRef = ref(db, `users/${userSession.user.uid}/list`);
   const newBookRef = push(userListRef);
   try {
     await set(newBookRef, {
@@ -30,20 +29,19 @@ export async function addBookToList(item) {
       buy_links,
     });
     // add notify
-    console.log('book was added ti the list');
+    Notiflix.Notify.success('Book was added ti the list.');
   } catch (err) {
+    Notiflix.Notify.success('Error adding book to the list!');
     console.error('Error adding book to the list:', err);
     // add notify
     throw err;
   }
 }
-
 // get List of books
 export async function getListOfBooks() {
   try {
-    const userListRef = ref(db, `users/${auth.currentUser.uid}/list`);
+    const userListRef = ref(db, `users/${userSession.user.uid}/list`);
     const snapshot = await get(userListRef);
-
     if (snapshot !== null) {
       const userList = Object.values(snapshot.val());
       return userList;
@@ -55,24 +53,32 @@ export async function getListOfBooks() {
     // add  notify .
   }
 }
-
 export async function deleteBookFromList(id) {
   try {
-    const userListRef = ref(db, `users/${auth.currentUser.uid}/list`);
+    const userListRef = ref(db, `users/${userSession.user.uid}/list`);
     const snapshot = await get(userListRef);
-
-    snapshot.forEach(async el => {
+    const deletePromises = [];
+    snapshot.forEach(el => {
       if (el.child('_id').val() === id) {
         const bookRef = child(userListRef, `${el.key}`);
-        try {
-          await remove(bookRef);
-          console.log('Book was deleted');
-        } catch (error) {
-          console.error('Error removing book:', error);
-        }
+        const deletePromise = remove(bookRef);
+        deletePromises.push(deletePromise);
       }
     });
+    await Promise.all(deletePromises);
+    Notiflix.Notify.success('Books were deleted.');
+    console.log('Books were deleted');
   } catch (err) {
+    Notiflix.Notify.success('Error removing books!');
+    console.error('Error removing books:', err);
     throw err;
   }
 }
+
+
+
+
+
+
+
+
