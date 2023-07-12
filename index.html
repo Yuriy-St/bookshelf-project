@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/bookshelf-project/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- check session before loading html -->
-    
-    
+    <!-- <script type="module" src="./js/firebase/firebase.js"></script>
+    <script type="module" src="./js/modalWindow/checkSession.js"></script> -->
     <!-- Title -->
     <title>Bookshelf</title>
 
@@ -16,29 +16,29 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/index-18fccf17.js"></script>
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-438bed37.js">
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-ce997ee9.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/index-6e9a06e5.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-7f48eebc.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-91f9df53.css">
   </head>
 
   <body>
     <!-- Header -->
-    <header class="header container">
-  <div class="header-content">
+    <header class="header">
+  <div class="container">
     <div class="nav">
       <a class="logo link" href="index.html">
         <img class="header-logo" src="./svg/logo.svg" />
         <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" />
       </a>
-      <ul id="menu-list" class="menu-list list hidden">
-        <li class="nav-item button">
-          <a class="nav-link link" href="index.html">Home</a>
+      <ul class="menu-list list">
+        <li class="nav-item">
+          <button class="nav-button button" data-home>Home</button>
         </li>
-        <li class="nav-item button">
-          <a class="nav-link link" href="./shopping_list.html">
+        <li class="nav-item">
+          <button class="nav-button button" data-shoppinglist>
             <span>Shopping list</span>
-            <img src="./svg/uil_cart.svg" alt="" class="nav-icon" />
-          </a>
+            <img src="./svg/uil_cart.svg" alt="" class="icon-btn" />
+          </button>
         </li>
       </ul>
     </div>
@@ -59,7 +59,7 @@
 
     <!-- Main content -->
     <main>
-      <div class="home container">
+      <div class="container">
         <aside class="sidebar">
           <!-- Categories -->
           <section class="categories">
@@ -74,7 +74,7 @@
       </div>
     </main>
 
-    <div class="backdrop modal-blur" data-modal-signUp>
+    <div class="backdrop modal-blur visually-hidden" data-modal-signUp>
   <!-- sign up modal -->
   <div class="register-modal modal">
     <button class="close-button" type="button" data-close-modal-signUp>
@@ -181,7 +181,7 @@
   </div>
 </div>
 
-    <div class="backdrop modal-blur" data-modal-signIn>
+    <div class="backdrop modal-blur visually-hidden" data-modal-signIn>
   <!-- sign in modal -->
   <div class="singin-modal modal">
     <button class="close-button" type="button" data-close-modal-signIn>
