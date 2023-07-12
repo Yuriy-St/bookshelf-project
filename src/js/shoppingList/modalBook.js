@@ -9,7 +9,7 @@ import {
 export default async function renderBookModal(bookId) {
   try {
     const isInShoppingList = await isBookInShoppingList(bookId);
-    const bookModalMarkup = await markupBookModal(bookId, isBookInShoppingList);
+    const bookModalMarkup = await markupBookModal(bookId, isInShoppingList);
     document.body.insertAdjacentHTML('beforeend', bookModalMarkup);
 
     const actionButton = document.querySelector('.action-button');
@@ -17,6 +17,9 @@ export default async function renderBookModal(bookId) {
       'click',
       handleActionButtonClick.bind(null, bookId, isInShoppingList)
     );
+
+    const closeButton = document.querySelector('.modal-close-button');
+    closeButton.addEventListener('click', closeModal);
   } catch (error) {
     console.log('Помилка при отриманні даних:', error);
   }
@@ -33,14 +36,19 @@ async function markupBookModal(bookId, isInList) {
     const markup = `
       <div class="modal">
         <div class="modal-content">
-          <img src="${book.book_image}" alt="Book Cover">
-          <h2>${book.title}</h2>
-          <p>Автор: ${book.author}</p>
-          <p>${book.description}</p>
-          <ul>
+          <img class="modal-image" src="${book.book_image}" alt="Book Cover">
+          <button class="modal-close-button">
+          <svg class="modal-close-icon">
+            <use xlink:href="#modal-close-button"></use>
+          </svg>
+          </button>
+          <h2 class="modal-title">${book.title}</h2>
+          <p class="modal-author">Автор: ${book.author}</p>
+          <p class="modal-decsription">${book.description}</p>
+          <ul class="modal-svg">
             ${buyLinksMarkup}
           </ul>
-          <button class="action-button">${
+          <button class="modal-action-button">${
             isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'
           }</button>
         </div>
@@ -68,4 +76,9 @@ async function handleActionButtonClick(bookId, isInShoppingList) {
     await addBookToList(bookId);
     actionButton.textContent = 'Видалити з Shopping List';
   }
+}
+
+function closeModal() {
+  const modal = document.querySelector('.modal');
+  modal.style.display = 'none';
 }
