@@ -7,7 +7,7 @@ charityBlock.innerHTML = `<div class="charity-header"><h2 class="charity-title">
     </div>
     <ul class="charity-list"></ul>
     <button class="btn-scroll" type="button">
-    <svg class="arrow-down" width="20" height="20">
+    <svg class="arrow-down" >
       <use href="./svg/charity.svg#downarrow"></use>
     </svg>
     </button>`;
@@ -74,12 +74,14 @@ function onClick() {
       behavior: 'smooth',
     });
   }
+    
 }
 
 function onScrollTop() {
-  imgArrow.classList.add('arrow-up');
+    imgArrow.classList.add('arrow-up'); 
 }
 
 function onTop() {
   imgArrow.classList.remove('arrow-up');
 }
+

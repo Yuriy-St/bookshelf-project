@@ -68,6 +68,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
+
+  width: 210px;
 }
 
 .counter {
@@ -125,6 +127,14 @@
   transition: background-color var(--transition-dur-and-func);
 }
 
+/* @media screen and (min-width: 1440px) {
+  .btn-scroll:hover,
+  .btn-scroll:focus {
+    background-color: var(--brand-dark);
+    transition: background-color var(--transition-dur-and-func);
+  }
+} */
+
 .foundation-logo {
   height: 32px;
 }
@@ -138,7 +148,7 @@
   width: 20px;
   height: 20px;
   fill: var(--brand-dark);
-  transition: transform var(--transition-dur-and-func);
+  background-color: transparent;
 }
 
 @media screen and (min-width: 768px) {
@@ -153,14 +163,24 @@
   transition: fill var(--transition-dur-and-func);
 }
 
+/* @media screen and (min-width: 1440px) {
+  .btn-scroll:hover .arrow-down {
+    fill: var(--white);
+    transition: fill var(--transition-dur-and-func);
+  }
+} */
+
 .btn-scroll:focus .arrow-down {
   fill: var(--white);
   transition: fill var(--transition-dur-and-func);
 }
 
-.btn-scroll:focus .arrow-down {
-  fill: var(--white);
-}
+/* @media screen and (min-width: 1440px) {
+  .btn-scroll:focus .arrow-down {
+    fill: var(--white);
+    transition: fill var(--transition-dur-and-func);
+  }
+} */
 
 .arrow-up {
   transform: rotate(180deg);
