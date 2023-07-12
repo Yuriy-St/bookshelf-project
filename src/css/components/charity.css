@@ -121,18 +121,12 @@
   }
 }
 
-.btn-scroll:hover {
-  background-color: var(--brand-dark);
-  transition: background-color var(--transition-dur-and-func);
-}
-
-/* @media screen and (min-width: 1440px) {
-  .btn-scroll:hover,
-  .btn-scroll:focus {
+@media screen and (min-width: 1440px) {
+  .btn-scroll:hover {
     background-color: var(--brand-dark);
     transition: background-color var(--transition-dur-and-func);
   }
-} */
+}
 
 .foundation-logo {
   height: 32px;
@@ -157,31 +151,24 @@
   }
 }
 
-.btn-scroll:hover .arrow-down {
-  fill: var(--white);
-  transition: fill var(--transition-dur-and-func);
-}
-
-/* @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .btn-scroll:hover .arrow-down {
     fill: var(--white);
     transition: fill var(--transition-dur-and-func);
   }
-} */
-
-/* .btn-scroll:focus .arrow-down {
-  fill: var(--white);
-  transition: fill var(--transition-dur-and-func);
-} */
-
-/* @media screen and (min-width: 1440px) {
-  .btn-scroll:focus .arrow-down {
-    fill: var(--white);
-    transition: fill var(--transition-dur-and-func);
-  }
-} */
+}
 
 .arrow-up {
   transform: rotate(180deg);
   transition: transform var(--transition-dur-and-func);
+}
+
+.focus.btn-scroll {
+  background-color: var(--brand-dark);
+  /* transition: background-color var(--transition-dur-and-func); */
+}
+
+.focus .arrow-down {
+  fill: var(--white);
+  /* transition: fill var(--transition-dur-and-func); */
 }
