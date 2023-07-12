@@ -7,16 +7,22 @@ import {
 import { fetchTopBooks } from '../booksAPI/booksApi';
 import { renderBookCategory } from '../categories/renderCategoriesScrollbar';
 import * as errorHandler from '../errorHandler';
-import * as loader from '../loader';
+import * as loader from '../loader.js';
 
 export default async function renderBestSellerBooks(parentRef) {
   const bookShelfRef = parentRef || document.querySelector('.bookshelf');
 
   try {
-    bookShelfRef.innerHTML = await markupBestSellerBook();
+    bookShelfRef.innerHTML = '';
+    loader.add(bookShelfRef);
+    const topBooksMarkup = await markupBestSellerBook();
+
+    bookShelfRef.innerHTML = topBooksMarkup;
     addButtonListeners();
   } catch (error) {
     errorHandler.renderError(bookShelfRef);
+  } finally {
+    loader.remove(bookShelfRef);
   }
 }
 
@@ -75,6 +81,7 @@ export async function onClickSeeMoreBtn(event) {
   const chosenCategory = [...categoriesContainerRef.children].find(
     listItem => listItem.textContent === categoryClickedName
   );
-  if (!chosenCategory) throw 'Such a category not found';
-  renderBookCategory(chosenCategory);
+  chosenCategory
+    ? renderBookCategory(chosenCategory)
+    : renderAllBookCategories();
 }

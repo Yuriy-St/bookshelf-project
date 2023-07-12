@@ -1,8 +1,10 @@
 import { markupBookCard } from '../bookCard/bookCard';
+import * as loader from '../loader.js';
 
 export function renderBookshelf(categoryBooks, parentRef) {
   const bookshelfRef = parentRef || document.querySelector('.bookshelf');
 
+  loader.add(bookshelfRef);
   const bookshelfMarkup = markupBookshelf(categoryBooks);
   bookshelfRef.innerHTML = bookshelfMarkup;
 }

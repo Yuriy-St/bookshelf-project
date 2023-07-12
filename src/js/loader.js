@@ -1,5 +1,5 @@
 export function add(parentRef) {
-  parentRef.innerHtml = '<span class="loader"></span>';
+  parentRef.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
 }
 
 export function remove(parentRef) {

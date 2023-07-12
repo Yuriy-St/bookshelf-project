@@ -1,18 +1,25 @@
 import * as booksAPI from '../booksAPI/booksApi';
 import { renderBookshelf } from './renderBookshelf';
 import renderBestSellerBooks from '../startPage/renderBestSellerBooks ';
-import * as loader from '../loader';
 import * as errorHandler from '../errorHandler';
+import * as loader from '../loader.js';
+
 let categoriesContainerRef = null;
 
 export async function renderCategoriesScrollbar(parentRef) {
   try {
+    parentRef.innerHTML = '';
     loader.add(parentRef);
-    parentRef.innerHTML = await markupCategoriesUlContainer();
+    const categoriesUlConatinerMarkup = await markupCategoriesUlContainer();
+
+    parentRef.innerHTML = categoriesUlConatinerMarkup;
     categoriesContainerRef = document.querySelector('.categories_list');
     categoriesContainerRef.addEventListener('click', onClickCategory);
   } catch {
-    errorHandler.renderError(categoriesContainerRef);
+    errorHandler.renderError(
+      parentRef,
+      'Sorry, but we were not able to get a category list.'
+    );
   }
 }
 
@@ -27,16 +34,12 @@ async function markupCategoriesUlContainer() {
 }
 
 async function fetchCategoryList() {
-  try {
-    const categories = await booksAPI.fetchCategoryList();
-    categories.sort((firstName, secondName) =>
-      firstName.list_name.localeCompare(secondName.list_name)
-    );
+  const categories = await booksAPI.fetchCategoryList();
+  categories.sort((firstName, secondName) =>
+    firstName.list_name.localeCompare(secondName.list_name)
+  );
 
-    return categories;
-  } catch (error) {
-    console.log(error);
-  }
+  return categories;
 }
 
 function markupScrollbarCategories(categories) {
@@ -61,12 +64,8 @@ export async function onClickCategory(event) {
 }
 
 async function fetchBooksByCategory(categoryName) {
-  try {
-    const categoryBooks = await booksAPI.fetchBooksByCategory(categoryName);
-    return categoryBooks;
-  } catch (error) {
-    console.log(error);
-  }
+  const categoryBooks = await booksAPI.fetchBooksByCategory(categoryName);
+  return categoryBooks;
 }
 
 function toggleCurrentCategoryColor(clickedCategoryRef) {
@@ -78,16 +77,11 @@ function toggleCurrentCategoryColor(clickedCategoryRef) {
 }
 
 export async function renderBookCategory(targetRef) {
-  try {
-    // loader.add(targetRef);
-    const categoryClickedName = targetRef.textContent;
-    const categoryBooks = await fetchBooksByCategory(categoryClickedName);
+  const categoryClickedName = targetRef.textContent;
+  const categoryBooks = await fetchBooksByCategory(categoryClickedName);
 
-    toggleCurrentCategoryColor(targetRef);
-    renderBookshelf(categoryBooks);
-  } catch (error) {
-    onErrorMessage(targetRef);
-  }
+  toggleCurrentCategoryColor(targetRef);
+  renderBookshelf(categoryBooks);
 }
 
 export function renderAllBookCategories() {

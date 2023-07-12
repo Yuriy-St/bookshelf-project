@@ -1,0 +1,19 @@
+.error_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  height: 80px;
+
+  color: var(--error-text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  background-color: var(--error-bg);
+  border: 3px solid var(--error-text);
+  border-radius: 8px;
+}
+
+.error_container--message {
+  margin: 0 auto;
+  text-align: start;
+}

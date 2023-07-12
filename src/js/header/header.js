@@ -1,6 +1,8 @@
 import * as themeSwitcher from './themeSwitcher';
 import { renderAllBookCategories, renderBookCategory } from '../categories';
 
+const DEFAULT_CATEGORY = 'All categories';
+
 export default function renderHeader() {
   const userBlockRef = document.querySelector('.user-block');
   initNavButtons();
@@ -9,8 +11,7 @@ export default function renderHeader() {
 }
 
 function initNavButtons() {
-  const btnHomeRef = document.querySelector('[data-home]');
-  const btnShoppingListRef = document.querySelector('[data-shoppinglist]');
+  initHomeButton();
 }
 
 function initHomeButton() {
@@ -19,8 +20,21 @@ function initHomeButton() {
 }
 
 function onClickHome() {
-  const currentCategory = localStorage.getItem('currentCategory');
-  renderAllBookCategories();
+  const currentCategory =
+    localStorage.getItem('currentCategory') || DEFAULT_CATEGORY;
+
+  if (currentCategory === DEFAULT_CATEGORY) {
+    renderAllBookCategories();
+    return;
+  }
+
+  const categoriesContainerRef = document.querySelector('.categories_list');
+  const chosenCategory = [...categoriesContainerRef.children].find(
+    listItem => listItem.textContent === currentCategory
+  );
+  chosenCategory
+    ? renderBookCategory(chosenCategory)
+    : renderAllBookCategories();
 }
 
 function renderButton() {}
