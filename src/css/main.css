@@ -2,3 +2,8 @@
 @import url('./base');
 @import url('./components');
 /* @import url('./layout'); */
+
+.bookshelf {
+  width: 100%;
+  min-height: 300px;
+}

@@ -30,6 +30,8 @@
     var(--brand-dark) 0%,
     #dcdcdc 100%
   );
+  --error-text: #e61919;
+  --error-bg: #f4bebe;
   --h1-primary-color: var(--brand-black);
   --link-highlight: var(--brand-dark);
   --logo-light-color: var(--brand-mist-color);
@@ -50,31 +52,30 @@
 
   --active-page-btn-color: var(--white);
   --body-bg: #202024;
-  --header-bg: var(--brand-black);
   --brand-dark-liniear-gradient: linear-gradient(
     180deg,
     #4f2ee8 0%,
     #686868 100%
   );
+  --error-bg: #f5bcbc;
+  --error-text: #ec1313;
   --h1-primary-color: var(--white);
-  --link-highlight: #eac645;
+  --header-bg: var(--brand-black);
+  --link-highlight: var(--brand-light);
+  --loader-color: var(--logo-text-color);
   --logo-light-color: var(--brand-mist-color);
   --logo-text-color: #f3f3f3;
+  --modal-border: var(--brand-mist-color);
+  --modal-button-background: var(--white);
+  --modal-field-background: var(--body-bg);
+  --modal-icons-color: var(--brand-mist-color);
   --pagination-btn-left-text-color: var(--white);
   --secondary-bg-color: var(--brand-black);
+  --slider-categorylist-color: rgba(17, 17, 17, 0.6);
   --slider-color: #202024;
+  --text-categorylist-color: rgba(255, 255, 255, 0.6);
   --text-inversed-color: var(--black);
   --text-primary-color: var(--white);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: #a6a6a7;
-
-  --modal-border: var(--brand-mist-color);
-  --modal-field-background: var(--body-bg);
-  --modal-button-background: var(--white);
-  --modal-icons-color: var(--brand-mist-color);
-
-  --text-categorylist-color: rgba(255, 255, 255, 0.6);
-  --slider-categorylist-color: rgba(17, 17, 17, 0.6);
-
-  --loader-color: var(--logo-text-color);
 }

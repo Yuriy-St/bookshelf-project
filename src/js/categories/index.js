@@ -1,1 +1,1 @@
-export { renderCategoriesScrollbar } from './renderCategoriesScrollbar';
+export * from './renderCategoriesScrollbar';
