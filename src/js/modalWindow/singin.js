@@ -4,13 +4,13 @@ import { saveSession } from '../storage/saveUser';
 import { closeSignIn } from './modalWindow';
 import { checkSession } from './checkSession';
 
-const singupForm = document.querySelector('#singin-form');
+const singInForm = document.querySelector('#singin-form');
 
-singupForm.addEventListener('submit', async event => {
+singInForm.addEventListener('submit', async event => {
   event.preventDefault();
 
-  const email = singupForm['singin-email'].value;
-  const password = singupForm['singin-password'].value;
+  const email = singInForm['singin-email'].value;
+  const password = singInForm['singin-password'].value;
 
   try {
     const auth = new Authentication({

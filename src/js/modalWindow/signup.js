@@ -4,14 +4,14 @@ import { closeSignUp } from './modalWindow';
 import { saveSession } from '../storage/saveUser';
 import { checkSession } from './checkSession';
 
-const singupForm = document.querySelector('#registration-form');
+const singUpForm = document.querySelector('#registration-form');
 
-singupForm.addEventListener('submit', async event => {
+singUpForm.addEventListener('submit', async event => {
   event.preventDefault();
 
-  const name = singupForm['singup-name'].value;
-  const email = singupForm['singup-email'].value;
-  const password = singupForm['singup-password'].value;
+  const name = singUpForm['singup-name'].value;
+  const email = singUpForm['singup-email'].value;
+  const password = singUpForm['singup-password'].value;
 
   try {
     const auth = new Authentication({
