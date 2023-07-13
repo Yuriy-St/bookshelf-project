@@ -51,7 +51,7 @@
 
 .header-logo-text {
   width: 77px;
-  fill: var(--brand-dark);
+  fill: var(--text-primary-color);
 }
 
 .menu-list {
@@ -82,9 +82,20 @@
   /* border: 2px solid var(--brand-light); */
 }
 
+.nav-button.active {
+  color: var(--button-brand-text-color);
+  background-color: var(--brand-light);
+}
+
 /* .nav-button:hover,
   .nav-button:focus {
   } */
+
+.svg-uil-cart {
+  fill: var(--text-primary-color);
+  width: 20px;
+  height: 20px;
+}
 
 .user-block {
   display: flex;
