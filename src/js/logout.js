@@ -28,5 +28,5 @@ logout.addEventListener('click', async event => {
 });
 
 function redirectAfterLogout() {
-  window.location.href = '/index.html';
+  window.location.href = '/bookshelf-project/';
 }
