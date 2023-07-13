@@ -1,13 +1,11 @@
 .button {
-  border: 2px solid transparent;
-  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 999em;
+  background-color: var(--brand-light);
   line-height: 1.285;
   /* typography */
   font-weight: 700;
   text-transform: uppercase;
-  transition: border var(--transition-dur-and-func),
-    background-color var(--transition-dur-and-func);
 }
 
 @media screen and (min-width: 768px) {
@@ -19,15 +17,23 @@
   }
 }
 
+.button:hover,
+.button:focus {
+  border: 2px solid var(--brand-dark);
+}
+
 .button-brand-ghost,
 .link-brand-ghost {
   background-color: transparent;
-  border: 2px solid var(--white-color);
+  border: 1px solid var(--white-color);
 }
 
-.button:hover,
-.button-brand-ghost:hover {
-  border-color: var(--brand-dark);
+.button-brand-ghost:hover,
+.button-brand-ghost:focus,
+.link-brand-ghost:hover,
+.link-brand-ghost:focus {
+  color: var(--primary-brand-color);
+  border-color: var(--primary-brand-color);
 }
 
 .link-brand:hover,
