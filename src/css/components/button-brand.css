@@ -1,6 +1,8 @@
 .button {
+  border: 1px solid transparent;
   border-radius: 999em;
   background-color: var(--brand-light);
+  line-height: 1.285;
   /* typography */
   font-weight: 700;
   text-transform: uppercase;
