@@ -34,25 +34,33 @@ async function markupBookModal(bookId, isInList) {
       .join('');
 
     const markup = `
-      <div class="modal">
-        <div class="modal-content">
-          <div class="book-image" >
-            <img src="${book.book_image}" alt="Book Cover">
+      <div class="modal-book-background">
+        <div class="modal">
+          <div class="modal-content">
+            <div class="book-info">
+              <div class="book-image" >
+                <img src="${book.book_image}" alt="Book Cover">
+              </div>
+                <div class="modal-text">
+                <button class="modal-close-button">
+                <svg class="modal-close-icon">
+                  <use xlink:href="#modal-close-button"></use>
+                </svg>
+                </button>
+                <h2 class="modal-title">${book.title}</h2>
+                <p class="modal-author">Автор: ${book.author}</p>
+                <p class="modal-decsription">${book.description}</p>
+                <ul class="modal-svg">
+                  <!-- ${buyLinksMarkup} -->
+                </ul>
+                </div>
+              </div>
+            <div class="modal-button-container">
+              <button class="modal-action-button">${
+                isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'
+              }</button>
+            </div>
           </div>
-          <button class="modal-close-button">
-          <svg class="modal-close-icon">
-            <use xlink:href="#modal-close-button"></use>
-          </svg>
-          </button>
-          <h2 class="modal-title">${book.title}</h2>
-          <p class="modal-author">Автор: ${book.author}</p>
-          <p class="modal-decsription">${book.description}</p>
-          <ul class="modal-svg">
-            <!-- ${buyLinksMarkup} -->
-          </ul>
-          <button class="modal-action-button">${
-            isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'
-          }</button>
         </div>
       </div>
     `;

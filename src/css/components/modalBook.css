@@ -1,3 +1,21 @@
+.modal-book-background {
+    background-color: rgba(17, 17, 17, 0.4);
+}
+
+.modal-content {
+    display: block;
+    padding-top: 12px;
+    padding-left: 24px;
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-content {
+        padding-top: 24px;
+        padding-left: 40px;
+    }
+}
+
 @media screen and (min-width: 768px) {
   .modal {
     /* position: fixed; */
@@ -5,7 +23,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 400px 430px 437px;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -57,15 +74,18 @@
   font-weight: 400;
 }
 
+.modal-button-container {
+    margin-top: 40px;
+    display: block;
+    padding-bottom: 40px;
+    padding-left: 40px;
+}
+
 .modal-action-button {
-  margin-top: 40px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   padding: 10px 20px;
   border-radius: 2px;
-  background-color: var(--brand-dark);
-  color: #fff;
+  background-color: white;
+  border-color: var(--brand-dark);
   font-family: 'DM Sans';
   font-weight: 500;
   font-size: 16px;
