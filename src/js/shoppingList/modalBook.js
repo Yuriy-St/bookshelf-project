@@ -46,7 +46,7 @@ async function markupBookModal(bookId, isInList) {
           <p class="modal-author">Автор: ${book.author}</p>
           <p class="modal-decsription">${book.description}</p>
           <ul class="modal-svg">
-            ${buyLinksMarkup}
+            <!-- ${buyLinksMarkup} -->
           </ul>
           <button class="modal-action-button">${
             isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'

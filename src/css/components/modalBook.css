@@ -1,21 +1,20 @@
 @media screen and (min-width: 768px) {
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 400px 430px 437px;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-      }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 400px 430px 437px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
+}
 
 .modal-author {
-    margin-top: 4px;
-    font-family: 'DM Sans';
-    font-style: italic;
-    font-weight: 400;
-  }
+  margin-top: 4px;
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+}
 
 @media screen and (min-width: 768px) {
   .modal-author {
@@ -24,48 +23,50 @@
 }
 
 .modal-close-button {
-    position: absolute;
-    padding-top: 24px;
-    padding-right: 24px;
-    color: var(--brand-black);
-  }
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  padding-top: 24px;
+  padding-right: 24px;
+  color: var(--brand-black);
+}
 
 @media screen and (min-width: 768px) {
-    .modal-close-button {
-        padding-top: 31px;
-        padding-right: 31px;
-      }
+  .modal-close-button {
+    padding-top: 31px;
+    padding-right: 31px;
   }
+}
 
-    .book-image {
-    padding: 40px 24px 40px 40px;
-  }
-  
-  .modal-content {
-    padding-top: 40px;
-    padding-left: 21px;
-    color: var(--brand-black);
-    font-family: 'DM Sans';
-    font-weight: 700;
-  }
-  
-  .modal-content {
-    margin-top: 20px;
-    font-family: 'DM Sans';
-    font-weight: 400;
-  }
-  
-  .modal-action-button {
-    margin-top: 40px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 20px;
-    border-radius: 2px;
-    background-color: var(--brand-dark);
-    color: #fff;
-    font-family: 'DM Sans';
-    font-weight: 500;
-    font-size: 16px;
-    text-align: center;
-  }
+.book-image {
+  padding: 40px 24px 40px 40px;
+}
+
+.modal-content {
+  padding-top: 40px;
+  padding-left: 21px;
+  color: var(--brand-black);
+  font-family: 'DM Sans';
+  font-weight: 700;
+}
+
+.modal-content {
+  margin-top: 20px;
+  font-family: 'DM Sans';
+  font-weight: 400;
+}
+
+.modal-action-button {
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  border-radius: 2px;
+  background-color: var(--brand-dark);
+  color: #fff;
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
