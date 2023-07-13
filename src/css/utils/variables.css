@@ -17,7 +17,6 @@
   --pagination-btn-left-fill-color: var(--brand-black);
   --pagination-btn-right-text-color: var(--black);
   --white: #ffffff;
-  --loader-color: var(--text-transparent);
 
   /* стандартний час і функція для транзишинів */
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -45,7 +44,7 @@
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: rgba(17, 17, 17, 0.6);
 
-  --button-brand-text-color: var(--text-primary-color);
+  --loader-color: var(--text-transparent);
   --modal-border: var(--brand-black);
   --modal-field-background: var(--white);
   --modal-button-background: var(--brand-black);
@@ -83,6 +82,4 @@
   --text-primary-color: var(--white);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: #a6a6a7;
-
-  --button-brand-text-color: var(--brand-graphite);
 }
