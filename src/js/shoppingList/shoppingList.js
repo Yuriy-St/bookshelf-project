@@ -12,7 +12,6 @@ export let bookList = [];
 let itemsPerPage;
 let paginationVisiblePages;
 let mediaQuery = window.matchMedia('(max-width: 767px)');
-const paginationContainer = document.getElementById('pagination');
 const booksContainer = document.getElementById('booksContainer');
 
 export async function renderShoppingList() {
@@ -29,20 +28,21 @@ export async function renderShoppingList() {
 async function deleteBook(event) {
   event.preventDefault();
   const targetRef = event.target;
-  // console.log('clickedElement: ', targetRef);
   const bookId = targetRef.dataset.bookId;
-  // console.log('bookId: ', bookId);
   if (bookId) {
     await deleteBookFromList(bookId);
-    // console.log('bookId: ', bookId);
     bookList = bookList.filter(item => item._id !== bookId);
     renderPageItems(bookList);
   }
 }
 
-function initializePreloadData() {
-  const paginatedItems = paginateItems(bookList);
-  const options = createPaginationOptions(paginatedItems);
+function initializePreloadData(pageOptions = {}) {
+  const { itemsPerPage, paginationVisiblePages } = pageOptions;
+  const paginatedItems = paginateItems(bookList, itemsPerPage);
+  const options = createPaginationOptions(
+    paginatedItems,
+    paginationVisiblePages
+  );
   initializePagination(options, paginatedItems);
   renderPageItems(paginatedItems[0]);
 }
@@ -65,12 +65,11 @@ function handleMediaQueryChange() {
   if (mediaQuery.matches) {
     itemsPerPage = 4;
     paginationVisiblePages = 2;
-    initializePreloadData();
   } else {
     itemsPerPage = 3;
     paginationVisiblePages = 3;
-    initializePreloadData();
   }
+  initializePreloadData({ itemsPerPage, paginationVisiblePages });
 }
 
 function renderShoppingListItems(bookList) {

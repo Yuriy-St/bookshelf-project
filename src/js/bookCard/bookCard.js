@@ -10,7 +10,7 @@ export function markupBookCard(data = {}) {
 
   return `<li class="book_card" data-bookId="${bookId}">
       <div class="book_container--img">
-        <img src="${bookImage}" alt="${bookTitle}, Author:${bookAuthorName}" class="book_card--img" />
+        <img loading="lazy" src="${bookImage}" alt="${bookTitle}, Author:${bookAuthorName}" class="book_card--img" />
         <p class="quick-view">quick view</p>
       </div>
       <h3 class="book_card--title">${bookTitle}</h3>

@@ -1,10 +1,10 @@
 export function markupShoppingListItems(bookList) {
-  const bookCardListMarkup = bookList.map(markupBookCard).join('');
+  const bookCardListMarkup = bookList.map(markupShoppingListItem).join('');
 
   return bookCardListMarkup;
 }
 
-function markupBookCard(bookCard) {
+function markupShoppingListItem(bookCard) {
   const { _id, list_name, author, description, title, book_image, buy_links } =
     bookCard;
   const bookCardMarkup = `
@@ -19,7 +19,7 @@ function markupBookCard(bookCard) {
         <p class="shoppinglist-book-text">${description}</p>
         <div class="shoppinglist-author-link-wrap">
           <p class="shoppinglist-name-author">${author}</p>
-          ${markupShoppingLinksList()}
+          ${markupShoppingLinksList(buy_links)}
         </div>
       </div>
     </li>
@@ -55,9 +55,9 @@ function markupDeleteButton(id) {
 
 function markupShoppingLinksList(linkList) {
   const amazonLinkMarkup = markupShoppinLink();
-  const sritePath = '../../img/shoppingList-sprite.svg';
+  const spritePath = '../../img/shoppingList-sprite.svg';
   const shoppingLinksMarkup = `
-    <div class="shoppinglist-link-wrap">
+    <ul class="shoppinglist-link-wrap">
       ${markupShoppinLink(
         linkList[0].url,
         spritePath,
@@ -76,7 +76,7 @@ function markupShoppingLinksList(linkList) {
         'shoppinglist-book-link-svg-cont',
         'icon-book-shop'
       )}
-    </div>
+    </ul>
   `;
 
   return shoppingLinksMarkup;
@@ -84,11 +84,13 @@ function markupShoppingLinksList(linkList) {
 
 function markupShoppinLink(shrefLink, spritePath, svgClass, svgId) {
   const shoppingLinkMarkup = `
-    <a href="${shrefLink}" target="_blank" class="shoppinglist-book-link">
-      <svg class="${svgClass}">
-        <use class="shoppinglist-book-link-svg" href="${spritePath}#${svgId}"></use>
-      </svg>
-    </a>
+    <li>
+      <a href="${shrefLink}" target="_blank" class="shoppinglist-book-link">
+        <svg class="${svgClass}">
+          <use class="shoppinglist-book-link-svg" href="${spritePath}#${svgId}"></use>
+        </svg>
+      </a>
+    </li>
   `;
 
   return shoppingLinkMarkup;

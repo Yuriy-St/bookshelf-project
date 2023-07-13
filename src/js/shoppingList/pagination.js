@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
+import { markupShoppingListItems } from './shoppingListItem';
 
-export function paginateItems(items) {
+export function paginateItems(items, itemsPerPage) {
   const paginatedItems = [];
   const totalPages = Math.ceil(items.length / itemsPerPage);
   for (let i = 0; i < totalPages; i++) {
@@ -11,7 +12,10 @@ export function paginateItems(items) {
   return paginatedItems;
 }
 
-export function createPaginationOptions(paginatedItems) {
+export function createPaginationOptions(
+  paginatedItems,
+  paginationVisiblePages
+) {
   return {
     totalItems: paginatedItems.length,
     itemsPerPage: 1,
@@ -41,11 +45,12 @@ export function createPaginationOptions(paginatedItems) {
 }
 
 export function initializePagination(options, paginatedItems) {
+  const paginationContainer = document.getElementById('pagination');
   const pagination = new Pagination(paginationContainer, options);
   pagination.on('afterMove', function (event) {
     const pageIndex = event.page - 1;
     const pageItems = paginatedItems[pageIndex];
     booksContainer.innerHTML = '';
-    renderBookCard(pageItems);
+    markupShoppingListItems(pageItems);
   });
 }
