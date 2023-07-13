@@ -84,7 +84,7 @@
   border-radius: 40px;
   color: var(--text-primary-color);
   border: 2px solid var(--modal-border);
-  background-color: var(--modal-field-background);
+  /* background-color: var(--modal-field-background); */
 
   transition-property: color, border-color;
   transition-duration: 250ms;
@@ -120,7 +120,6 @@
 
 .input-field::placeholder {
   color: var(--text-primary-color);
-  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
