@@ -1,36 +1,46 @@
 .modal-book-background {
-    background-color: rgba(17, 17, 17, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.modal-book {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--modal-book-bg);
+  border: 1px solid var(--modal-border);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-book {
+    width: 580px;
+  }
 }
 
 .modal-content {
-    display: block;
-    padding-top: 12px;
-    padding-left: 24px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-right: 24px;
+  padding-bottom: 40px;
+  padding-left: 24px;
 }
 
 @media screen and (min-width: 768px) {
-    .modal-content {
-        padding-top: 24px;
-        padding-left: 40px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-  .modal {
-    /* position: fixed; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 400px 430px 437px;
+  .modal-content {
+    padding-top: 24px;
+    padding-left: 40px;
+    padding-top: 24px;
   }
 }
 
 .modal-author {
-  margin-top: 4px;
-  font-family: 'DM Sans';
   font-style: italic;
-  font-weight: 400;
+  margin-bottom: 18px;
+  color: var(--text-secondary-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -40,11 +50,11 @@
 }
 
 .modal-close-button {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  padding-top: 24px;
-  padding-right: 24px;
+  top: 12px;
+  right: 12px;
   color: var(--brand-black);
 }
 
@@ -55,30 +65,21 @@
   }
 }
 
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .book-image {
-  width: 287px;
-  padding: 40px 24px 40px 40px;
-}
-
-.modal-content {
-  padding-top: 40px;
-  padding-left: 21px;
-  color: var(--brand-black);
-  font-family: 'DM Sans';
-  font-weight: 700;
-}
-
-.modal-content {
-  margin-top: 20px;
-  font-family: 'DM Sans';
-  font-weight: 400;
+  /* width: 287px; */
+  /* padding: 40px 24px 40px 40px; */
 }
 
 .modal-button-container {
-    margin-top: 40px;
-    display: block;
-    padding-bottom: 40px;
-    padding-left: 40px;
+  margin-top: 40px;
+  display: block;
+  padding-bottom: 40px;
+  padding-left: 40px;
 }
 
 .modal-action-button {

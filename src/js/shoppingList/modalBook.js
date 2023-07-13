@@ -35,29 +35,31 @@ async function markupBookModal(bookId, isInList) {
 
     const markup = `
       <div class="modal-book-background">
-        <div class="modal">
-          <div class="modal-content">
+        <div class="modal-book">
+            <button class="modal-close-button">
+              <svg class="modal-close-icon">
+                <use xlink:href="#modal-close-button"></use>
+              </svg>
+            </button>
+            <div class="modal-content">
             <div class="book-info">
               <div class="book-image" >
                 <img src="${book.book_image}" alt="Book Cover">
               </div>
-                <div class="modal-text">
-                <button class="modal-close-button">
-                <svg class="modal-close-icon">
-                  <use xlink:href="#modal-close-button"></use>
-                </svg>
-                </button>
+              <div class="modal-text">
                 <h2 class="modal-title">${book.title}</h2>
                 <p class="modal-author">Автор: ${book.author}</p>
                 <p class="modal-decsription">${book.description}</p>
                 <ul class="modal-svg">
                   <!-- ${buyLinksMarkup} -->
                 </ul>
-                </div>
               </div>
+            </div>
             <div class="modal-button-container">
               <button class="modal-action-button">${
-                isInList ? 'Видалити з Shopping List' : 'Додати до Shopping List'
+                isInList
+                  ? 'Видалити з Shopping List'
+                  : 'Додати до Shopping List'
               }</button>
             </div>
           </div>

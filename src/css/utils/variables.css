@@ -46,6 +46,8 @@
   --modal-field-background: var(--white);
   --modal-button-background: var(--brand-black);
   --modal-icons-color: var(--brand-black);
+
+  --modal-book-bg: var(--wite);
 }
 
 .theme-dark {
@@ -73,4 +75,6 @@
   --modal-field-background: var(--body-bg);
   --modal-button-background: var(--white);
   --modal-icons-color: var(--brand-mist-color);
+
+  --modal-book-bg: var(--brand-graphite);
 }
