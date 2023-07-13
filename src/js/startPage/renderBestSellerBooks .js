@@ -21,8 +21,6 @@ export default async function renderBestSellerBooks(parentRef) {
     addButtonListeners();
   } catch (error) {
     errorHandler.renderError(bookShelfRef);
-  } finally {
-    loader.remove(bookShelfRef);
   }
 }
 

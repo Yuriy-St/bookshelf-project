@@ -1,3 +1,4 @@
+import { checkSession } from './js/modalWindow/checkSession';
 import renderHeader from './js/header/header';
 import { renderCategoriesScrollbar } from './js/categories';
 import renderCharityList from './js/charity/charityScrollContainer';
@@ -11,3 +12,5 @@ renderHeader();
 renderCategoriesScrollbar(categoriesContainerRef);
 renderBestSellerBooks(topBooksRef);
 renderCharityList();
+
+// checkSession();
