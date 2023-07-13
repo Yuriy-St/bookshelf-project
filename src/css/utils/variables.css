@@ -45,6 +45,10 @@
   --text-transparent: rgba(17, 17, 17, 0.6);
 
   --loader-color: var(--text-transparent);
+  --modal-border: var(--brand-black);
+  --modal-field-background: var(--white);
+  --modal-button-background: var(--brand-black);
+  --modal-icons-color: var(--brand-black);
 }
 
 .theme-dark {

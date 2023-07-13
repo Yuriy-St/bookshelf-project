@@ -84,7 +84,7 @@
   border-radius: 40px;
   color: var(--text-primary-color);
   border: 2px solid var(--modal-border);
-  background-color: var(--modal-field-background);
+  /* background-color: var(--modal-field-background); */
 
   transition-property: color, border-color;
   transition-duration: 250ms;
