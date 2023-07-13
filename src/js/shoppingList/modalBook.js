@@ -36,7 +36,9 @@ async function markupBookModal(bookId, isInList) {
     const markup = `
       <div class="modal">
         <div class="modal-content">
-          <img class="modal-image" src="${book.book_image}" alt="Book Cover">
+          <div class="book-image" >
+            <img src="${book.book_image}" alt="Book Cover">
+          </div>
           <button class="modal-close-button">
           <svg class="modal-close-icon">
             <use xlink:href="#modal-close-button"></use>

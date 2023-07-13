@@ -1,6 +1,6 @@
 @media screen and (min-width: 768px) {
   .modal {
-    position: fixed;
+    /* position: fixed; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -39,6 +39,7 @@
 }
 
 .book-image {
+  width: 287px;
   padding: 40px 24px 40px 40px;
 }
 
