@@ -19,8 +19,7 @@ function initHomeButton() {
   btnHomeRef.addEventListener('click', onClickHome);
 }
 
-function onClickHome(event) {
-  event.target.blure();
+function onClickHome() {
   const currentCategory =
     localStorage.getItem('currentCategory') || DEFAULT_CATEGORY;
 
@@ -38,7 +37,4 @@ function onClickHome(event) {
     : renderAllBookCategories();
 }
 
-function initShoppingListButton() {
-  const btnShoppingListRef = document.querySelector('[data-shoppinglist]');
-  btnShoppingListRef;
-}
+function renderButton() {}
