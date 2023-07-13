@@ -44,12 +44,6 @@
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: rgba(17, 17, 17, 0.6);
 
-  --modal-border: var(--brand-black);
-  --modal-field-background: var(--white);
-  --modal-button-background: var(--brand-black);
-  --modal-icons-color: var(--brand-black);
-
-  --modal-book-bg: var(--wite);
   --loader-color: var(--text-transparent);
 }
 
@@ -84,11 +78,4 @@
   --text-primary-color: var(--white);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: #a6a6a7;
-
-  --modal-border: var(--brand-mist-color);
-  --modal-field-background: var(--body-bg);
-  --modal-button-background: var(--white);
-  --modal-icons-color: var(--brand-mist-color);
-
-  --modal-book-bg: var(--brand-graphite);
 }
