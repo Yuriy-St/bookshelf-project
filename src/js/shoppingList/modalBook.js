@@ -12,7 +12,7 @@ export default async function renderBookModal(bookId) {
     const bookModalMarkup = await markupBookModal(bookId, isInShoppingList);
     document.body.insertAdjacentHTML('beforeend', bookModalMarkup);
 
-    const actionButton = document.querySelector('.action-button');
+    const actionButton = document.querySelector('.modal-action-button');
     actionButton.addEventListener(
       'click',
       handleActionButtonClick.bind(null, bookId, isInShoppingList)
@@ -79,7 +79,7 @@ async function isBookInShoppingList(bookId) {
 }
 
 async function handleActionButtonClick(bookId, isInShoppingList) {
-  const actionButton = document.querySelector('.action-button');
+  const actionButton = document.querySelector('.modal-action-button');
 
   if (isInShoppingList) {
     await deleteBookFromList(bookId);

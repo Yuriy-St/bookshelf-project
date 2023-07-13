@@ -1,4 +1,6 @@
 .modal-book-background {
+  z-index: 1000;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
