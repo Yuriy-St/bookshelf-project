@@ -16,10 +16,10 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/shopping_list-80166c47.js"></script>
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-8542a6d8.js">
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/index-e3d5d3f4-1d057962.js">
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-bc57900b.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/shopping_list-4f9202bc.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-d6a00d65.js">
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/index-e3d5d3f4-8eebb3db.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-4dda1880.css">
   </head>
   <body>
     <!-- Header -->
@@ -27,17 +27,23 @@
   <div class="container">
     <div class="nav">
       <a class="logo link" href="index.html">
-        <img class="header-logo" src="./svg/logo.svg" />
-        <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" />
+        <svg class="header-logo">
+          <use href="../img/header_sprite.svg#logo"></use>
+        </svg>
+        <svg class="header-logo-text">
+          <use href="../img/header_sprite.svg#bookshelfTextLogo"></use>
+        </svg>
       </a>
       <ul class="menu-list list">
         <li class="nav-item">
-          <button class="nav-button button" data-home>Home</button>
+          <button class="nav-button button active" data-home>Home</button>
         </li>
         <li class="nav-item">
           <button class="nav-button button" data-shoppinglist>
             <span>Shopping list</span>
-            <img src="./svg/uil_cart.svg" alt="" class="icon-btn" />
+            <svg class="svg-uil-cart">
+              <use href="../img/header_sprite.svg#uil_cart"></use>
+            </svg>
           </button>
         </li>
       </ul>
