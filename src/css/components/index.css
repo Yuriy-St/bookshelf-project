@@ -18,5 +18,7 @@
 @import url('./modals/modals.css');
 @import url('./shoppingList.css');
 @import url('./paginate.css');
+
+@import url('./modalBook.css');
 @import url('./bestsellersBooks.css');
 @import url('./loader.css');

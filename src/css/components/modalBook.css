@@ -1,0 +1,94 @@
+.modal-book-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.modal-book {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--modal-book-bg);
+  border: 1px solid var(--modal-border);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-book {
+    width: 580px;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-right: 24px;
+  padding-bottom: 40px;
+  padding-left: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content {
+    padding-top: 24px;
+    padding-left: 40px;
+    padding-top: 24px;
+  }
+}
+
+.modal-author {
+  font-style: italic;
+  margin-bottom: 18px;
+  color: var(--text-secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-author {
+    margin-top: 8px;
+  }
+}
+
+.modal-close-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--brand-black);
+}
+
+@media screen and (min-width: 768px) {
+  .modal-close-button {
+    padding-top: 31px;
+    padding-right: 31px;
+  }
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.book-image {
+  /* width: 287px; */
+  /* padding: 40px 24px 40px 40px; */
+}
+
+.modal-button-container {
+  margin-top: 40px;
+  display: block;
+  padding-bottom: 40px;
+  padding-left: 40px;
+}
+
+.modal-action-button {
+  padding: 10px 20px;
+  border-radius: 2px;
+  background-color: white;
+  border-color: var(--brand-dark);
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
