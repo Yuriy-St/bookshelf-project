@@ -2,17 +2,23 @@
   <div class="container">
     <div class="nav">
       <a class="logo link" href="index.html">
-        <img class="header-logo" src="./svg/logo.svg" />
-        <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" />
+        <svg class="header-logo">
+          <use href="../img/header_sprite.svg#logo"></use>
+        </svg>
+        <svg class="header-logo-text">
+          <use href="../img/header_sprite.svg#bookshelfTextLogo"></use>
+        </svg>
       </a>
       <ul class="menu-list list">
         <li class="nav-item">
-          <button class="nav-button button" data-home>Home</button>
+          <button class="nav-button button active" data-home>Home</button>
         </li>
         <li class="nav-item">
           <button class="nav-button button" data-shoppinglist>
             <span>Shopping list</span>
-            <img src="./svg/uil_cart.svg" alt="" class="icon-btn" />
+            <svg class="svg-uil-cart">
+              <use href="../img/header_sprite.svg#uil_cart"></use>
+            </svg>
           </button>
         </li>
       </ul>
