@@ -1,7 +1,7 @@
-import { getUserSession } from '../storage/saveUser';
+import { getUserSession } from './storage/saveUser';
 
 const menuListEl = document.querySelector('.menu-list');
-const loginEl = document.querySelector('#sign-up-header');
+const loginEl = document.querySelector('#sign-up-header-button');
 const loginWrapperEl = document.querySelector('#login-wrapper');
 const loginNameEl = document.querySelector('.login-name');
 
