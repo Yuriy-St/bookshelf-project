@@ -1,11 +1,11 @@
 import Notiflix from 'notiflix';
 import Authentication from './authentication';
 import { removeSession } from './storage/saveUser';
-import { checkSession } from './modalWindow/checkSession';
+import { checkSession } from './checkSession';
 
 const logout = document.querySelector('#logout');
 
-logout.addEventListener('click', async event => {
+logout.addEventListener('click', async () => {
   try {
     const auth = new Authentication({
       name: 'some name',
@@ -23,7 +23,7 @@ logout.addEventListener('click', async event => {
       redirectAfterLogout();
     }
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 });
 

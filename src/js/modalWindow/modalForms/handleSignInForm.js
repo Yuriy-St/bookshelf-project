@@ -1,16 +1,15 @@
 import Notiflix from 'notiflix';
-import Authentication from '../authentication';
-import { saveSession } from '../storage/saveUser';
-import { closeSignIn } from './modalWindow';
-import { checkSession } from './checkSession';
+import Authentication from '../../authentication';
+import { saveSession } from '../../storage/saveUser';
+import { checkSession } from '../../checkSession';
+import { Modal } from '../modalWindow';
 
-const singInForm = document.querySelector('#singin-form');
-
-singInForm.addEventListener('submit', async event => {
+export const handleSignInForm = async (event, signInForm) => {
+  const signInModal = new Modal(document.querySelector('[data-modal-signIn]'));
   event.preventDefault();
 
-  const email = singInForm['singin-email'].value;
-  const password = singInForm['singin-password'].value;
+  const email = signInForm['singin-email'].value;
+  const password = signInForm['singin-password'].value;
 
   try {
     const auth = new Authentication({
@@ -22,10 +21,10 @@ singInForm.addEventListener('submit', async event => {
     if (singInUser) {
       Notiflix.Notify.success('You have successfully login!');
       event.target.reset();
-      closeSignIn();
+      signInModal.close();
 
-      saveSession(singInUser); //save session to localstorage
-      checkSession(); //check session, add remove class on header elements
+      saveSession(singInUser);
+      checkSession();
     }
   } catch (err) {
     if (err.code === 'auth/wrong-password') {
@@ -35,4 +34,4 @@ singInForm.addEventListener('submit', async event => {
       event.target.reset();
     }
   }
-});
+};
