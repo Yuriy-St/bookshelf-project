@@ -16,10 +16,10 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/index-17ec4f44.js"></script>
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-e808a641.js">
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/index-e3d5d3f4-49eb9430.js">
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-15f2bc98.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/index-3d260ff5.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-2fef5ff9.js">
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/index-e3d5d3f4-b751200b.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-51a42d90.css">
   </head>
 
   <body>
@@ -75,9 +75,9 @@
       </div>
     </main>
 
-    <div class="backdrop modal-blur" data-modal-signUp>
+    <div class="backdrop">
   <!-- sign up modal -->
-  <div class="register-modal modal">
+  <div class="signup-modal modal" data-modal-signUp>
     <button class="close-button" type="button" data-close-modal-signUp>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -171,18 +171,16 @@
       <button class="form-button signup-button" type="submit">Sign up</button>
 
       <div class="toggle-buttons">
-        <button class="toggle-button active" id="sign-up-button" type="button">
-          Sign up
+        <button class="toggle-button active" type="button">Sign up</button>
+        <button class="toggle-button" id="sign-in-button" type="button">
+          Sign in
         </button>
-        <button class="toggle-button" type="button">Sign in</button>
       </div>
     </form>
   </div>
-</div>
 
-    <div class="backdrop modal-blur" data-modal-signIn>
-  <!-- sign in modal -->
-  <div class="singin-modal modal">
+  <!-- sign-in modal -->
+  <div class="singin-modal modal" data-modal-signIn>
     <button class="close-button" type="button" data-close-modal-signIn>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +258,7 @@
       <button class="form-button singin-button" type="submit">Sign in</button>
 
       <div class="toggle-buttons">
-        <button class="toggle-button" id="sign-in-button" type="button">
+        <button class="toggle-button" id="sign-up-button" type="button">
           Sign up
         </button>
         <button class="toggle-button active" type="button">Sign in</button>
