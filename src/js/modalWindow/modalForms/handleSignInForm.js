@@ -21,7 +21,7 @@ export const handleSignInForm = async (event, signInForm) => {
     if (singInUser) {
       Notiflix.Notify.success('You have successfully login!');
       event.target.reset();
-      signInModal.close();
+      signInModal.backdropClose();
 
       saveSession(singInUser);
       checkSession();
