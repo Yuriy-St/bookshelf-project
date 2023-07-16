@@ -198,7 +198,7 @@
 .tui-pagination .tui-ico-last {
   width: 12px;
   height: 12px;
-  background-position: 1px -10px;
+  background-position: 1px -11px;
 }
 
 .tui-pagination .tui-ico-ellip {
@@ -237,7 +237,7 @@
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-first {
-  background-position: -13px 2px;
+  background-position: -13px 1px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-next {

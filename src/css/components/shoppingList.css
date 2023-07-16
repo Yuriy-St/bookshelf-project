@@ -18,7 +18,7 @@ a {
   transition: var(--transition-dur-and-func);
 }
 .shoppinglist-delete-book-button:hover {
-  background-color: #2656f3;
+  background-color: var(--brand-light);
 }
 @media screen and (min-width: 768px) {
   .shoppinglist-delete-book-button {
