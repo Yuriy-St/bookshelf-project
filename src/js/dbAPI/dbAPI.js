@@ -28,12 +28,10 @@ export async function addBookToList(item) {
       book_image,
       buy_links,
     });
-    // add notify
     Notiflix.Notify.success('Book was added ti the list.');
   } catch (err) {
     Notiflix.Notify.success('Error adding book to the list!');
     console.error('Error adding book to the list:', err);
-    // add notify
     throw err;
   }
 }
@@ -49,8 +47,8 @@ export async function getListOfBooks() {
       return [];
     }
   } catch (err) {
+    Notiflix.Notify.success('The shopping list is empty!');
     throw err;
-    // add  notify .
   }
 }
 export async function deleteBookFromList(id) {
