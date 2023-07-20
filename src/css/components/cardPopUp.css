@@ -1,5 +1,18 @@
 .card-backdrop {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(17, 17, 17, 0.4);
 }
+
 .card-modal {
   position: absolute;
   width: 335px;
@@ -9,9 +22,9 @@
   border-radius: 18px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  /* pointer-events: none;
+  pointer-events: none;
   visibility: hidden;
-  opacity: 0; */
+  opacity: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -19,6 +32,12 @@
     width: 579px;
     padding: 40px;
   }
+}
+
+.card-modal.modal-active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .close-button {
@@ -68,6 +87,7 @@
 
 @media screen and (min-width: 768px) {
   .card-name {
+    width: 255px;
     font-size: 24px;
     font-weight: 700;
     line-height: 1.16;
@@ -108,8 +128,9 @@
   }
 }
 
-.card-buy-links {
+.card-buy-items {
   display: flex;
+  align-items: center;
   gap: 20px;
   margin-bottom: 40px;
   height: 36px;
@@ -117,6 +138,10 @@
 
 .card-link {
 }
+
+/* .card-link-image:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+} */
 
 .card-button {
   display: block;
@@ -135,6 +160,15 @@
   border-radius: 40px;
   border: 2px solid #4f2ee8;
   background: #fff;
+
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-button:hover {
+  background-color: #4f2ee8;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {
