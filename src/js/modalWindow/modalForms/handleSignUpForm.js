@@ -23,8 +23,8 @@ export const handleSignUpForm = async (event, signUpForm) => {
     if (registerUser) {
       Notiflix.Notify.success('You have successfully registered!');
       event.target.reset();
-      signUpModal.close(); //close modal
-      saveSession; //save session to local storage
+      signUpModal.backdropClose(); //close modal
+      saveSession(registerUser); //save session to local storage
 
       checkSession(); //check session, add remove class on header elements
     }
