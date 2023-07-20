@@ -38,19 +38,19 @@ function markupCardModal(book) {
           <li class="card-item">
             
             <a href="${buy_links[0].url}">
-              <img class="card-link-image" src="../../img/cardPopUp/amazon.png" alt="amazon"/>
+              <img class="card-link-image" src="./cardModalImages/amazon.png" alt="amazon"/>
             </a>
           </li>
 
           <li class="card-item">
             <a href="${buy_links[1].url}">
-              <img class="card-link-image" src="../../img/cardPopUp/book.png" alt="book"/>
+              <img class="card-link-image" src="./cardModalImages/book.png" alt="book"/>
             </a>
           
           </li>
           <li class="card-item">
             <a href="${buy_links[2].url}">
-              <img class="card-link-image" src="../../img/cardPopUp/bookShop.png" alt="bookShop"/>
+              <img class="card-link-image" src="./cardModalImages/bookShop.png" alt="bookShop"/>
             </a>
           </li>
         </ul>
