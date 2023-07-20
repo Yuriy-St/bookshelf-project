@@ -58,7 +58,7 @@ const reRenderButtons = async id => {
 bookShelfEl.addEventListener('click', async event => {
   const targetElement = event.target.closest('li');
   const isQuickView = event.target.closest('.quick-view');
-
+  //
   if (isQuickView && targetElement.classList.contains('book_card')) {
     const book = await fetchBookById(targetElement.dataset.bookid);
     cardBackdrop.innerHTML = markupCardModal(book);
