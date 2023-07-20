@@ -1,5 +1,4 @@
 import { initShoppingList } from "./initializationShoppingList";
-
 // Pass the class name argument to the mainFuncRender() function.
 export default function mainFuncRender(className) {
   const markupBookshelfSection = mainFuncMarkup();
