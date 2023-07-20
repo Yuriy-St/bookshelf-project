@@ -191,11 +191,14 @@ a {
   transition: var(--transition-dur-and-func);
 }
 .shoppinglist-book-link-svg-cont-amazon:hover {
-  stroke: var(--brand-light);
+  /* stroke: var(--brand-light); */
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
 }
 .shoppinglist-book-link-svg-cont:hover {
-  stroke: var(--brand-light);
+  /* stroke: var(--brand-light); */
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
 }
+
 @media screen and (min-width: 768px) {
   .shoppinglist-book-link-svg-cont {
     width: 32px;
