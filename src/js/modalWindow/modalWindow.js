@@ -4,11 +4,11 @@ export class Modal {
   }
 
   backdrop() {
-    this.modalElement.parentElement.classList.toggle('active-modal');
+    this.modalElement.parentElement.classList.toggle('visually-hidden');
   }
 
   backdropClose() {
-    this.modalElement.parentElement.classList.remove('active-modal');
+    this.modalElement.parentElement.classList.add('visually-hidden');
   }
 
   open() {
