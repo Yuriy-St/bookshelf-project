@@ -1,6 +1,5 @@
 import Notiflix from 'notiflix';
 import { getUserSession } from '../storage/saveUser';
-import { getAuth } from 'firebase/auth';
 import {
   getDatabase,
   ref,
@@ -10,10 +9,12 @@ import {
   remove,
   child,
 } from 'firebase/database';
-const userSession = getUserSession();
 const db = getDatabase();
+
 // add Book to list
 export async function addBookToList(item) {
+  const userSession = getUserSession();
+  if (!userSession) return;
   const { _id, list_name, author, description, title, book_image, buy_links } =
     item;
   const userListRef = ref(db, `users/${userSession.user.uid}/list`);
@@ -31,12 +32,12 @@ export async function addBookToList(item) {
     Notiflix.Notify.success('Book was added ti the list.');
   } catch (err) {
     Notiflix.Notify.success('Error adding book to the list!');
-    console.error('Error adding book to the list:', err);
     throw err;
   }
 }
 // get List of books
 export async function getListOfBooks() {
+  const userSession = getUserSession();
   try {
     const userListRef = ref(db, `users/${userSession.user.uid}/list`);
     const snapshot = await get(userListRef);
@@ -51,7 +52,10 @@ export async function getListOfBooks() {
     throw err;
   }
 }
+
+// delete book from list
 export async function deleteBookFromList(id) {
+  const userSession = getUserSession();
   try {
     const userListRef = ref(db, `users/${userSession.user.uid}/list`);
     const snapshot = await get(userListRef);
@@ -65,18 +69,26 @@ export async function deleteBookFromList(id) {
     });
     await Promise.all(deletePromises);
     Notiflix.Notify.success('Books were deleted.');
-    console.log('Books were deleted');
   } catch (err) {
-    Notiflix.Notify.success('Error removing books!');
-    console.error('Error removing books:', err);
+    Notiflix.Notify.failure('Error removing books!');
     throw err;
   }
 }
 
+export async function getBookFromList(id) {
+  const userSession = getUserSession();
+  if (!userSession) return;
+  try {
+    const userListRef = ref(db, `users/${userSession.user.uid}/list`);
 
-
-
-
-
-
-
+    const snapshot = await get(userListRef);
+    if (snapshot.val() !== null) {
+      const foundBook = Object.values(snapshot.val()).find(el => el._id === id);
+      return foundBook ? foundBook : null;
+    }
+    return null;
+  } catch (err) {
+    Notiflix.Notify.failure('Error getting book');
+    throw err;
+  }
+}
