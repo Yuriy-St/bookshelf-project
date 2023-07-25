@@ -1,7 +1,10 @@
+import { renderPlaceholder } from './initializationShoppingList';
+
 export function markupShoppingListItems(pageItems) {
-  const bookCardListMarkup = pageItems.map(markupShoppingListItem).join('');
-  return bookCardListMarkup;
-};
+  if (pageItems) return pageItems.map(markupShoppingListItem).join('');
+  renderPlaceholder();
+  return '';
+}
 
 function markupShoppingListItem(pageItems) {
   const { _id, list_name, author, description, title, book_image, buy_links } =
@@ -24,7 +27,7 @@ function markupShoppingListItem(pageItems) {
     </li>
   `;
   return bookCardMarkup;
-};
+}
 
 function markupDeleteButton(id) {
   const deleteButtonMarkup = `
@@ -48,7 +51,7 @@ function markupDeleteButton(id) {
     </button>
   `;
   return deleteButtonMarkup;
-};
+}
 
 function markupShoppingLinksList(linkList) {
   const amazonLinkMarkup = markupShoppinLink();
@@ -56,27 +59,27 @@ function markupShoppingLinksList(linkList) {
   const shoppingLinksMarkup = `
     <ul class="shoppinglist-link-wrap">
       ${markupShoppinLink(
-    linkList[0].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont-amazon',
-    'icon-Amazon'
-  )}
+        linkList[0].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont-amazon',
+        'icon-Amazon'
+      )}
       ${markupShoppinLink(
-    linkList[1].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont',
-    'icon-apple-books'
-  )}
+        linkList[1].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont',
+        'icon-apple-books'
+      )}
       ${markupShoppinLink(
-    linkList[2].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont',
-    'icon-book-shop'
-  )}
+        linkList[2].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont',
+        'icon-book-shop'
+      )}
     </ul>
   `;
   return shoppingLinksMarkup;
-};
+}
 
 function markupShoppinLink(shrefLink, spritePath, svgClass, svgId) {
   const shoppingLinkMarkup = `
@@ -89,4 +92,4 @@ function markupShoppinLink(shrefLink, spritePath, svgClass, svgId) {
     </li>
   `;
   return shoppingLinkMarkup;
-};
+}
