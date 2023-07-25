@@ -9,5 +9,7 @@
 }
 
 .modal-scroll {
-  overflow: hidden;
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 8px;
 }
