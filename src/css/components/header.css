@@ -47,6 +47,8 @@
 
 .logo {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-logo {
@@ -55,8 +57,9 @@
 }
 
 .header-logo-text {
-  width: 77px;
-  fill: var(--brand-dark);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--header-logo);
 }
 
 .menu-list {
