@@ -49,6 +49,9 @@
   --modal-field-background: var(--white);
   --modal-button-background: var(--brand-black);
   --modal-icons-color: var(--brand-black);
+
+  --shopinglist-empty-color: rgba(0, 0, 0, 0.6);
+  --burger-color: var(--brand-black);
 }
 
 .theme-dark {
@@ -82,4 +85,6 @@
   --text-primary-color: var(--white);
   --text-secondary-color: var(--brand-stone-color);
   --text-transparent: #a6a6a7;
+  --shopinglist-empty-color: var(--text-categorylist-color);
+  --burger-color: var(--white);
 }

@@ -21,7 +21,8 @@
 }
 
 .header .container {
-  position: absolute;
+  /* position: relative;
+  z-index: 100; */
 
   width: 100%;
   height: 100%;
@@ -134,12 +135,31 @@
   }
 }
 
+.burger-menu_icon {
+  display: block;
+  fill: var(--burger-color);
+}
+
 .burger-menu_container {
   position: absolute;
-  top: calc(99%);
+  top: 0;
   left: 0;
 
-  background-color: aqua;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
   width: 100%;
   height: 100%;
+}
+
+.burger-menu_backdrop--img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 450.001px;
+  height: 439px;
+  transform: rotate(-15deg);
+  flex-shrink: 0;
 }

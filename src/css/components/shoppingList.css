@@ -225,7 +225,7 @@ a {
   }
 }
 .shopping_list-placeholder-text {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--shopinglist-empty-color);
   max-width: 244px;
   text-align: center;
   font-family: 'DM Sans';
