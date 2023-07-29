@@ -21,9 +21,6 @@
 }
 
 .header .container {
-  /* position: relative;
-  z-index: 100; */
-
   width: 100%;
   height: 100%;
   display: flex;
@@ -62,7 +59,7 @@
   color: var(--header-logo);
 }
 
-.menu-list {
+.header .menu-list {
   display: none;
 }
 
@@ -95,19 +92,97 @@
   } */
 
 .user-block {
+  position: relative;
+
   display: flex;
   align-items: center;
 }
 
 @media screen and (max-width: 767px) {
-  .user-block,
-  .login {
+  .header .user-block,
+  .header .login {
     display: none;
   }
 }
 
-.burger-menu {
-  width: 28px;
+.login-wrapper {
+  position: relative;
+  height: 45px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transform: translateY(0);
+
+  display: flex;
+  padding: 12px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  opacity: 0;
+  color: #111;
+  border-radius: 18px;
+  border-radius: 36px;
+  border: 1.5px solid #111;
+  background: #fff;
+  user-select: none;
+
+  transition: transform var(--transition-dur-and-func) 200ms,
+    opacity var(--transition-dur-and-func) 200ms;
+}
+
+.login {
+  display: flex;
+  padding: 12px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  /* opacity: 0; */
+  color: #fff;
+  border-radius: 18px;
+  border-radius: 36px;
+  border: 1.5px solid #111;
+  background: #4f2ee8;
+  user-select: none;
+}
+
+.login-wrapper_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-wrapper:hover .logout,
+.login-wrapper:focus .logout {
+  /* overflow-y: visible;
+  height: auto; */
+  transform: translateY(100%);
+  opacity: 1;
+}
+
+.login-wrapper_container .user {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+
+  min-height: 45px;
+
+  border-radius: 36px;
+  background-color: #4f2ee8;
+}
+
+.login-wrapper_container .login-name {
+  margin: 0px 4px 0 0;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.44px;
+  user-select: none;
 }
 
 @media screen and (min-width: 767px) {
@@ -116,53 +191,17 @@
   }
 }
 
-.login-wrapper {
-  display: inline-flex;
-
-  align-items: center;
-  gap: 10px;
-}
-
 .login-img {
-  width: 25px;
-  height: 25px;
+  width: 37px;
+  height: 37px;
+  margin-right: 9px;
 }
 
 .hidden {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
-  .hidden {
-    display: none;
-  }
-}
-
 .burger-menu_icon {
   display: block;
   fill: var(--burger-color);
-}
-
-.burger-menu_container {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background: radial-gradient(
-    189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #fff 100%
-  );
-  width: 100%;
-  height: 100%;
-}
-
-.burger-menu_backdrop--img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 450.001px;
-  height: 439px;
-  transform: rotate(-15deg);
-  flex-shrink: 0;
 }
