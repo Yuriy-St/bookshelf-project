@@ -42,6 +42,13 @@
   }
 }
 
+.burger-menu_container .menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto 0 auto -10px;
+}
+
 .burger-menu_container .login-wrapper_container {
   display: flex;
   justify-content: space-between;

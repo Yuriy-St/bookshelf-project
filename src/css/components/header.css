@@ -59,12 +59,14 @@
   color: var(--header-logo);
 }
 
-.header .menu-list {
-  display: none;
+@media screen and (max-width: 768px) {
+  .header .menu-list {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 768px) {
-  .menu-list {
+@media screen and (min-width: 769px) {
+  .header .menu-list {
     display: flex;
     align-items: center;
     /* justify-content: flex-end; */
@@ -84,7 +86,12 @@
   align-items: center;
   gap: 4px;
   padding: 8px 16px;
+
   /* border: 2px solid var(--brand-light); */
+}
+
+.nav-button span {
+  min-width: 103px;
 }
 
 /* .nav-button:hover,
@@ -157,8 +164,8 @@
   align-items: center;
 }
 
-.login-wrapper:hover .logout,
-.login-wrapper:focus .logout {
+.header .login-wrapper:hover .logout,
+.header .login-wrapper:focus .logout {
   /* overflow-y: visible;
   height: auto; */
   transform: translateY(100%);
