@@ -41,6 +41,47 @@
 
     <load src="partials/authModals.html" />
     <div class="card-backdrop visually-hidden"></div>
+
+    <div class="burger-menu_backdrop">
+      <div class="burger-menu_container">
+        <div class="user-block">
+          <div class="login-wrapper">
+            <div id="login-wrapper" class="login-wrapper_container hidden">
+              <div class="user">
+                <img class="login-img" src="./logo_1.png" />
+                <p class="login-name"></p>
+              </div>
+
+              <button type="button" id="logout" class="logout">
+                Log out
+                <svg width="20px" height="20px" class="burger-menu_icon">
+                  <use
+                    width="20px"
+                    height="20px"
+                    href="../public/svg/logoutarrow.svg#logoutarrow"
+                  ></use>
+                </svg>
+              </button>
+              <button type="button" id="sign-up-header-button" class="login">
+                Sign up
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="menu-list list">
+          <li class="nav-item">
+            <button class="nav-button button" data-home>Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-button button" data-shoppinglist>
+              <span>Shopping list</span>
+              <img src="./svg/uil_cart.svg" alt="" class="icon-btn" />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <script type="module" src="./main.js"></script>
     <script
       type="module"

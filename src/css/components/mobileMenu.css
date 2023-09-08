@@ -1,0 +1,66 @@
+.burger-menu_backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 767px) {
+  .burger-menu_backdrop {
+    display: none;
+  }
+}
+
+.burger-menu_backdrop .user-block,
+.burger-menu_backdrop .login-wrapper,
+.burger-menu_backdrop .login-wrapper_container {
+  height: 100%;
+}
+
+.burger-menu_container {
+  display: flex;
+  padding: 84px 20px 20px 20px;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('../../img/burgermenu-backdrop.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+@media screen and (min-width: 625px) {
+  .burger-menu_container {
+    background-image: none;
+  }
+}
+
+.burger-menu_container .menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto 0 auto -10px;
+}
+
+.burger-menu_container .login-wrapper_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.burger-menu_container .user {
+  background-color: transparent;
+}
+
+.burger-menu_container .logout {
+  position: static;
+
+  z-index: 1;
+  opacity: 1;
+}
