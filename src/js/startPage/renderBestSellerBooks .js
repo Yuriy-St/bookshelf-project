@@ -1,5 +1,4 @@
 import {
-  renderBookshelf,
   collectCategoryBooks,
   markupBookshelfTitle,
   markupBookList,
@@ -9,20 +8,18 @@ import { renderBookCategory } from '../categories/renderCategoriesScrollbar';
 import * as errorHandler from '../errorHandler';
 import * as loader from '../loader.js';
 
-export default async function renderBestSellerBooks(parentRef) {
-  const bookShelfRef = parentRef || document.querySelector('.bookshelf');
+export default async function renderBestSellerBooks() {
+  const bookShelfRef = document.querySelector('.bookshelf');
 
   try {
-    bookShelfRef.innerHTML = '';
+    // add laoder
     loader.add(bookShelfRef);
-    const topBooksMarkup = await markupBestSellerBook();
 
+    const topBooksMarkup = await markupBestSellerBook();
     bookShelfRef.innerHTML = topBooksMarkup;
     addButtonListeners();
   } catch (error) {
     errorHandler.renderError(bookShelfRef);
-  } finally {
-    // loader.remove(bookShelfRef);
   }
 }
 

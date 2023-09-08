@@ -58,14 +58,17 @@ const reRenderButtons = async id => {
 bookShelfEl.addEventListener('click', async event => {
   const targetElement = event.target.closest('li');
   const isQuickView = event.target.closest('.quick-view');
-  //
   if (isQuickView && targetElement.classList.contains('book_card')) {
     const book = await fetchBookById(targetElement.dataset.bookid);
     cardBackdrop.innerHTML = markupCardModal(book);
 
     // render buttons
-    const bookFromDB = await getBookFromList(targetElement.dataset.bookid);
-    initCardButton(bookFromDB);
+    try {
+      const bookFromDB = await getBookFromList(targetElement.dataset.bookid);
+      initCardButton(bookFromDB);
+    } catch (err) {
+      initCardButton();
+    }
 
     // open modal
     openCardModal();

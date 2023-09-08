@@ -20,9 +20,6 @@ export default function renderShoppingListByUserClick(
 function mainFuncMarkup() {
   return `
 <section class="bookshelf">
-  <h2 class="shoppinglist-title">
-    Shopping<span class="shoppinglist-wrap">List</span>
-  </h2>
   <ul id="booksContainer" class="shoppinglist-list"></ul>
   <div id="pagination" class="tui-pagination"></div>
 </section>

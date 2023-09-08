@@ -79,6 +79,10 @@
   width: 20px;
 }
 
+a .nav-button {
+  color: var(--color-svg-shopp-list-dark);
+}
+
 .nav-button {
   display: flex;
   flex-direction: row;
@@ -86,6 +90,7 @@
   align-items: center;
   gap: 4px;
   padding: 8px 16px;
+  /* color: ; */
 
   /* border: 2px solid var(--brand-light); */
 }
@@ -205,6 +210,10 @@
 }
 
 .hidden {
+  display: none;
+}
+
+.menu-list.hidden {
   display: none;
 }
 
