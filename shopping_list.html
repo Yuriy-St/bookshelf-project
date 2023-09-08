@@ -16,9 +16,9 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/main-281d79a0.js"></script>
-    <script type="module" crossorigin src="/bookshelf-project/assets/initializationShoppingList-940468ee.js"></script>
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-b376ef25.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/main-7bc4fb4e.js"></script>
+    <script type="module" crossorigin src="/bookshelf-project/assets/initializationShoppingList-404afe08.js"></script>
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-ab64fc7c.css">
   </head>
   <body>
     <!-- Header -->
@@ -43,16 +43,61 @@
       </ul>
     </div>
     <div class="user-block">
-      <div id="login-wrapper" class="login-wrapper hidden">
-        <img class="login-img" src="./logo_1.png" />
-        <p class="login-name"></p>
-        <p id="logout" class="logout">logout</p>
+      <div class="login-wrapper">
+        <div id="login-wrapper" class="login-wrapper_container hidden">
+          <div class="user">
+            <img class="login-img" src="./logo_1.png" />
+            <p class="login-name"></p>
+            <svg width="23px" height="26px" class="burger-menu_icon">
+              <use
+                width="23px"
+                height="26px"
+                href="../public/svg/user-button_icon.svg#button_icon"
+              ></use>
+            </svg>
+          </div>
+
+          <button type="button" id="logout" class="logout">
+            Log out
+            <svg width="20px" height="20px" class="burger-menu_icon">
+              <use
+                width="20px"
+                height="20px"
+                href="../public/svg/logoutarrow.svg#logoutarrow"
+              ></use>
+            </svg>
+          </button>
+          <!-- <button type="button" id="sign-up-header-button" class="login">
+            Sign up
+            <svg width="20px" height="20px" class="burger-menu_icon">
+              <use
+                width="20px"
+                height="20px"
+                href="../public/svg/logoutarrow.svg#logoutarrow"
+              ></use>
+            </svg>
+          </button> -->
+        </div>
+        <button type="button" id="sign-up-header-button" class="login">
+          Sign up
+          <svg width="20px" height="20px" class="burger-menu_icon">
+            <use
+              width="20px"
+              height="20px"
+              href="../public/svg/logoutarrow.svg#logoutarrow"
+            ></use>
+          </svg>
+        </button>
       </div>
-      <btn id="sign-up-header-button" class="login">Sign up</btn>
     </div>
     <div class="burger-menu">
-      <img src="./svg/align-left.svg" />
-      <div class="burger-menu_container"></div>
+      <svg width="28px" height="28px" class="burger-menu_icon">
+        <use
+          width="28px"
+          height="28px"
+          href="../public/svg/burger.svg#burger"
+        ></use>
+      </svg>
     </div>
   </div>
 </header>
