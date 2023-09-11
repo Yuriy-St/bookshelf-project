@@ -31,10 +31,11 @@ export async function addBookToList(item) {
     });
     Notiflix.Notify.success('Book was added ti the list.');
   } catch (err) {
-    Notiflix.Notify.success('Error adding book to the list!');
+    Notiflix.Notify.error('Error adding book to the list!');
     throw err;
   }
 }
+
 // get List of books
 export async function getListOfBooks() {
   const userSession = getUserSession();
@@ -88,7 +89,6 @@ export async function getBookFromList(id) {
     }
     return null;
   } catch (err) {
-    Notiflix.Notify.failure('Error getting book');
     throw err;
   }
 }

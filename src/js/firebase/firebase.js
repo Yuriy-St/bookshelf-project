@@ -3,16 +3,14 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAA8jYNKkxR3HcK5Tf_qvCbW3uqAVzZXEY',
-  authDomain: 'bookshelf-24937.firebaseapp.com',
-  projectId: 'bookshelf-24937',
-  storageBucket: 'bookshelf-24937.appspot.com',
-  messagingSenderId: '302463622298',
-  appId: '1:302463622298:web:d325247a433ddd90885323',
-  measurementId: 'G-TR194SD0XD',
-  databaseURL:
-    'https://bookshelf-24937-default-rtdb.europe-west1.firebasedatabase.app/',
+  apiKey: 'AIzaSyCJSquTd3KGVDroMbZ8UoIjG6CkTYmgKX0',
+  authDomain: 'bookshelf-1-39151.firebaseapp.com',
+  projectId: 'bookshelf-1-39151',
+  storageBucket: 'bookshelf-1-39151.appspot.com',
+  messagingSenderId: '496121048758',
+  appId: '1:496121048758:web:41479e18db0279b779c017',
+  databaseURL: 'https://bookshelf-1-39151-default-rtdb.firebaseio.com/',
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+getFirestore(app);

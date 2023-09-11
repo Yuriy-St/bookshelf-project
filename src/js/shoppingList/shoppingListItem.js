@@ -6,27 +6,38 @@ export function markupShoppingListItems(pageItems) {
   return '';
 }
 
-function markupShoppingListItem(pageItems) {
-  const { _id, list_name, author, description, title, book_image, buy_links } =
-    pageItems;
-  const bookCardMarkup = `
-    <li class="shoppinglist-item">
-      ${markupDeleteButton(_id)}
-      <div class="shoppinglist-thumb">
-        <img src="${book_image}" alt="${title}" class="shoppinglist-img" />
-      </div>
-      <div class="shoppinglist-info-book">
-        <h3 class="shoppinglist-name-book">${title}</h3>
-        <p class="shoppinglist-book-category">${list_name}</p>
-        <p class="shoppinglist-book-text">${description}</p>
-        <div class="shoppinglist-author-link-wrap">
-          <p class="shoppinglist-name-author">${author}</p>
-          ${markupShoppingLinksList(buy_links)}
-        </div>
-      </div>
-    </li>
-  `;
-  return bookCardMarkup;
+export function markupShoppingListItem(books) {
+  const bookItem = books
+    .map(
+      ({
+        _id,
+        list_name,
+        author,
+        description,
+        title,
+        book_image,
+        buy_links,
+      }) => `<li class="shoppinglist-item">
+       ${markupDeleteButton(_id)}
+       <div class="shoppinglist-thumb">
+         <img src="${book_image}" alt="${title}" class="shoppinglist-img" />
+       </div>
+       <div class="shoppinglist-info-book">
+         <h3 class="shoppinglist-name-book">${title}</h3>
+         <p class="shoppinglist-book-category">${list_name}</p>
+         <p class="shoppinglist-book-text">${
+           description === '' ? 'description not found' : description
+         }</p>
+         <div class="shoppinglist-author-link-wrap">
+           <p class="shoppinglist-name-author">${author}</p>
+           ${markupShoppingLinksList(buy_links)}
+         </div>
+       </div>
+     </li>`
+    )
+    .join('');
+
+  return bookItem;
 }
 
 function markupDeleteButton(id) {
