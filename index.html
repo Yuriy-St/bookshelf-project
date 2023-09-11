@@ -16,10 +16,10 @@
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
     
-    <script type="module" crossorigin src="/bookshelf-project/assets/index-61653c76.js"></script>
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-7bc4fb4e.js">
-    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/initializationShoppingList-404afe08.js">
-    <link rel="stylesheet" href="/bookshelf-project/assets/main-ab64fc7c.css">
+    <script type="module" crossorigin src="/bookshelf-project/assets/index-85236d6a.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/main-1bb45ba4.js">
+    <link rel="modulepreload" crossorigin href="/bookshelf-project/assets/dbAPI-28c30f47.js">
+    <link rel="stylesheet" href="/bookshelf-project/assets/main-21c1efdb.css">
   </head>
 
   <body>
@@ -27,14 +27,16 @@
     <header class="header">
   <div class="container">
     <div class="nav">
-      <a class="logo link" href="index.html">
+      <a class="logo link" href="/index.html">
         <img class="header-logo" src="./svg/logo.svg" />
         <!-- <img class="header-logo-text" src="./svg/bookshelfTextLogo.svg" /> -->
         <div class="header-logo-text">BookShelf</div>
       </a>
       <ul class="menu-list list">
         <li class="nav-item">
-          <button class="nav-button button" data-home>Home</button>
+          <a href="/index.html"
+            ><button class="nav-button button" data-home>Home</button></a
+          >
         </li>
         <li class="nav-item">
           <button class="nav-button button" data-shoppinglist>
@@ -117,7 +119,7 @@
           <section class="charity"></section>
         </aside>
 
-        <section id="bookshelf" class="bookshelf">Books list</section>
+        <section id="bookshelf" class="bookshelf"></section>
         <section class="shopinglist visually-hidden">Shopping list</section>
       </div>
     </main>
