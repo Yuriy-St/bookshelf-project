@@ -22,7 +22,7 @@ export default async function renderBestSellerBooks(parentRef) {
   } catch (error) {
     errorHandler.renderError(bookShelfRef);
   } finally {
-    loader.remove(bookShelfRef);
+    // loader.remove(bookShelfRef);
   }
 }
 
