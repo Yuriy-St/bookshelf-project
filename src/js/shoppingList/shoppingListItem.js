@@ -1,30 +1,44 @@
-export function markupShoppingListItems(pageItems) {
-  const bookCardListMarkup = pageItems.map(markupShoppingListItem).join('');
-  return bookCardListMarkup;
-};
+import { renderPlaceholder } from './initializationShoppingList';
 
-function markupShoppingListItem(pageItems) {
-  const { _id, list_name, author, description, title, book_image, buy_links } =
-    pageItems;
-  const bookCardMarkup = `
-    <li class="shoppinglist-item">
-      ${markupDeleteButton(_id)}
-      <div class="shoppinglist-thumb">
-        <img src="${book_image}" alt="${title}" class="shoppinglist-img" />
-      </div>
-      <div class="shoppinglist-info-book">
-        <h3 class="shoppinglist-name-book">${title}</h3>
-        <p class="shoppinglist-book-category">${list_name}</p>
-        <p class="shoppinglist-book-text">${description}</p>
-        <div class="shoppinglist-author-link-wrap">
-          <p class="shoppinglist-name-author">${author}</p>
-          ${markupShoppingLinksList(buy_links)}
-        </div>
-      </div>
-    </li>
-  `;
-  return bookCardMarkup;
-};
+export function markupShoppingListItems(pageItems) {
+  if (pageItems) return pageItems.map(markupShoppingListItem).join('');
+  renderPlaceholder();
+  return '';
+}
+
+export function markupShoppingListItem(books) {
+  const bookItem = books
+    .map(
+      ({
+        _id,
+        list_name,
+        author,
+        description,
+        title,
+        book_image,
+        buy_links,
+      }) => `<li class="shoppinglist-item">
+       ${markupDeleteButton(_id)}
+       <div class="shoppinglist-thumb">
+         <img src="${book_image}" alt="${title}" class="shoppinglist-img" />
+       </div>
+       <div class="shoppinglist-info-book">
+         <h3 class="shoppinglist-name-book">${title}</h3>
+         <p class="shoppinglist-book-category">${list_name}</p>
+         <p class="shoppinglist-book-text">${
+           description === '' ? 'description not found' : description
+         }</p>
+         <div class="shoppinglist-author-link-wrap">
+           <p class="shoppinglist-name-author">${author}</p>
+           ${markupShoppingLinksList(buy_links)}
+         </div>
+       </div>
+     </li>`
+    )
+    .join('');
+
+  return bookItem;
+}
 
 function markupDeleteButton(id) {
   const deleteButtonMarkup = `
@@ -48,7 +62,7 @@ function markupDeleteButton(id) {
     </button>
   `;
   return deleteButtonMarkup;
-};
+}
 
 function markupShoppingLinksList(linkList) {
   const amazonLinkMarkup = markupShoppinLink();
@@ -56,27 +70,27 @@ function markupShoppingLinksList(linkList) {
   const shoppingLinksMarkup = `
     <ul class="shoppinglist-link-wrap">
       ${markupShoppinLink(
-    linkList[0].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont-amazon',
-    'icon-Amazon'
-  )}
+        linkList[0].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont-amazon',
+        'icon-Amazon'
+      )}
       ${markupShoppinLink(
-    linkList[1].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont',
-    'icon-apple-books'
-  )}
+        linkList[1].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont',
+        'icon-apple-books'
+      )}
       ${markupShoppinLink(
-    linkList[2].url,
-    spritePath,
-    'shoppinglist-book-link-svg-cont',
-    'icon-book-shop'
-  )}
+        linkList[2].url,
+        spritePath,
+        'shoppinglist-book-link-svg-cont',
+        'icon-book-shop'
+      )}
     </ul>
   `;
   return shoppingLinksMarkup;
-};
+}
 
 function markupShoppinLink(shrefLink, spritePath, svgClass, svgId) {
   const shoppingLinkMarkup = `
@@ -89,4 +103,4 @@ function markupShoppinLink(shrefLink, spritePath, svgClass, svgId) {
     </li>
   `;
   return shoppingLinkMarkup;
-};
+}

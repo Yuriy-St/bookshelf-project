@@ -19,8 +19,8 @@ signUpHeaderEl.addEventListener('click', event => {
 signUpModal.modalElement.firstElementChild.children[0].addEventListener(
   'click',
   () => {
-    signUpModal.backdrop();
     signUpModal.close();
+    signUpModal.backdropClose();
   }
 );
 
@@ -28,8 +28,8 @@ signUpModal.modalElement.firstElementChild.children[0].addEventListener(
 signInModal.modalElement.firstElementChild.children[0].addEventListener(
   'click',
   () => {
-    signUpModal.backdrop();
     signInModal.close();
+    signUpModal.backdropClose();
   }
 );
 
